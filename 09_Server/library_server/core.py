@@ -275,6 +275,10 @@ class Library:
         card["evidence"] = [self.apply_path_aliases(str(e)) for e in card["evidence"]]
         self.guard(card, "card")
         self.guard(project, "project")
+        dup = self._find_duplicate(project, card)
+        if dup:
+            raise LibraryError(f"Duplicate: card {card['id']} with identical content is already "
+                               f"in the inbox ({dup}). Nothing written.")
 
         now = dt.datetime.now(dt.timezone.utc)
         stamped = dict(card)
@@ -292,6 +296,23 @@ class Library:
         rel = self._write_new(path, text,
                               f"inbox: {card['type']} card {card['id']} [{project}] via {src}", src)
         return {"status": "accepted", "path": rel, "timestamp": stamped["timestamp"]}
+
+    _STAMP_KEYS = {"project", "source_ai", "timestamp", "schema_version", "client_reported"}
+
+    def _find_duplicate(self, project: str, card: dict) -> str | None:
+        """Return the inbox path of an existing card with the same id and identical content."""
+        folder = self.root / INBOX / slug(project)
+        if not folder.exists():
+            return None
+        want = {k: v for k, v in card.items() if k not in self._STAMP_KEYS}
+        for f in folder.glob("*.md"):
+            meta, _ = parse_frontmatter(f.read_text(encoding="utf-8"))
+            if meta.get("id") != card.get("id"):
+                continue
+            have = {k: v for k, v in meta.items() if k not in self._STAMP_KEYS}
+            if have == want:
+                return str(f.relative_to(self.root)).replace("\\", "/")
+        return None
 
     def log_lesson(self, project: str, text: str, evidence: Any, source_ai: str,
                    client_reported: str | None = None) -> dict:

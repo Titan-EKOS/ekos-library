@@ -142,7 +142,9 @@ def test_add_card_append_only_one_commit_each(lib_root):
     lib = Library(lib_root)
     n0 = commits(lib_root)
     r1 = lib.add_card(dict(CARD), "claude", "7TEST0001")
-    r2 = lib.add_card(dict(CARD), "codex", "7TEST0001")       # same id: new file, no overwrite
+    with pytest.raises(LibraryError, match="Duplicate"):        # identical resubmit refused
+        lib.add_card(dict(CARD), "codex", "7TEST0001")
+    r2 = lib.add_card(dict(CARD, gotchas=["new gotcha"]), "codex", "7TEST0001")  # same id, new content: new file
     assert r1["path"] != r2["path"]
     assert r1["path"].startswith("07_Inbox/7TEST0001/JCO_")
     assert commits(lib_root) == n0 + 2
