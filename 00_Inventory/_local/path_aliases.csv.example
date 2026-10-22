@@ -1,0 +1,3 @@
+# Copy to path_aliases.csv (gitignored). client_text,replacement
+# Applied to evidence paths before the data guard runs.
+# Example:  Acme Homes,7ACM010100

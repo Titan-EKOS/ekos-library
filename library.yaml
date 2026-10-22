@@ -1,0 +1,62 @@
+# EKOS Library configuration. Read by the server, build.py and the pre-commit hook.
+schema_version: 1
+owner: JCO
+initials: JCO
+preparer: Psomas (JCO)
+
+card:
+  types: [skill, agent, qc_rule]
+  functions:
+    - data-gathering
+    - hydrology
+    - hydraulics-model-run
+    - exhibits
+    - report-assembly
+    - compile-pdf
+    - qc
+    - jurisdiction-rules
+    - project-setup
+    - other
+  confidence: [high, medium, low]
+  required: [id, title, type, function, trigger, steps, evidence, confidence]
+  # source_ai must start with one of these (e.g. "claude", "codex", "local:laguna-s-2.1")
+  source_ai_prefixes: [claude, chatgpt, codex, gemini, local]
+
+skill:
+  required_frontmatter: [name, description, version, jurisdiction, tools_versions, owner]
+  status_values: [draft, active, retired]
+
+agent:
+  required_frontmatter: [name, description, version, jurisdiction, tools_versions, owner, skills]
+  status_values: [draft, active, retired]
+
+data_guard:
+  # Cards hold lessons and file paths only. Any hit rejects the write.
+  max_field_chars: 4000
+  patterns:
+    email: '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
+    phone: '(?<!\d)\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}(?!\d)'
+    apn_or_ssn: '(?<![\d-])\d{3}-\d{2}-\d{3,4}[A-Z]?(?![\d-])'
+    street_address: '(?<!\d)\d{2,6}\s+(?:[NSEW]\.?\s+)?(?:[A-Z][A-Za-z0-9]*\s+){1,3}(?:St|Street|Rd|Road|Ave|Avenue|Blvd|Boulevard|Dr|Drive|Ln|Lane|Way|Ct|Court|Pl|Place|Pkwy|Parkway|Hwy|Highway|Cir|Circle|Trl|Trail)\b'
+  # Local-only files (gitignored): one client term per line; alias map "client_text,job_number"
+  client_terms_file: 00_Inventory/_local/client_terms.txt
+  path_aliases_file: 00_Inventory/_local/path_aliases.csv
+
+lint:
+  # Report-writing banned vocabulary (warning in masters; wrap lists in <!-- lint-off --> / <!-- lint-on -->)
+  banned_words: [delve, leverage, elevate, foster, cultivate, navigate, reshape, revolutionize,
+    streamline, optimize, tap into, transformative, paramount, seamless, unwavering,
+    groundbreaking, testament, holistic, paradigm, furthermore, moreover, in addition,
+    notably, it is worth noting, essentially, ultimately, arguably, defensible,
+    engineer of record]
+  # Must never appear in deliverable-facing template text (templates/ folders in a skill)
+  ai_terms: [claude, chatgpt, gpt, gemini, codex, openai, anthropic, ollama, llm, ' ai ', 'ai-generated', copilot]
+
+build:
+  local_prompt_max_chars: 60000
+  local_base_model: ""      # e.g. the Ollama tag to put in generated Modelfiles; empty = skip Modelfiles
+  include_drafts: false
+
+standing_instruction: >-
+  Read the relevant skill from the EKOS Library before the work. Write a lesson
+  card at the end of any project task.

@@ -1,0 +1,9 @@
+# Local-only: client terms and path aliases never leave EKOS
+00_Inventory/_local/*
+!00_Inventory/_local/*.example
+09_Server/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/library_server.lock
+*.bak_*

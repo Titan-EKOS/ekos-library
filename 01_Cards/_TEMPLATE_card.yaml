@@ -1,0 +1,19 @@
+# Lesson card. Lessons and file paths only - no client documents, no client data.
+# Submit with add_card (MCP) or: python 09_Server/library_cli.py add-card <file> --source-ai <ai> --project <job no>
+id: JOBNO-001
+title: Short name of the lesson
+type: skill            # skill | agent | qc_rule
+function: hydrology    # data-gathering | hydrology | hydraulics-model-run | exhibits | report-assembly | compile-pdf | qc | jurisdiction-rules | project-setup | other
+trigger: When this applies
+steps:
+  - Step 1
+gotchas:
+  - What went wrong and the fix
+jurisdiction: Pima County
+tools_versions: PC-Hydro 7.4
+evidence:
+  - D:\path\to\file (job-number path, no client names)
+hours_lost: 0
+recurrence: 1          # how many projects or times this came up
+confidence: medium     # high | medium | low
+# source_ai, project, timestamp are stamped by the server
