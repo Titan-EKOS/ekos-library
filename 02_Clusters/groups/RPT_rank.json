@@ -1,0 +1,137 @@
+[
+ {
+  "cluster": "RPT-C13",
+  "title": "FEMA CLOMR/LOMR package build and pre-upload QC",
+  "target": "new skill flo2d-clomr-package + add-on fema + QC rule",
+  "score": 58.0,
+  "hours": 43.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "RPT-C04",
+  "title": "Interim evidence/review package after unattended runs",
+  "target": "agent model-run-supervisor",
+  "score": 48.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "RPT-C08",
+  "title": "Technical memo structure and memo types",
+  "target": "new skill drainage-technical-memo",
+  "score": 42.0,
+  "hours": 12.0,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "RPT-C07",
+  "title": "Narrative content rules: project description, existing conditions, analysis description",
+  "target": "QC rule + drainage-report-build sec. 1",
+  "score": 38.5,
+  "hours": 5.25,
+  "cards": 4,
+  "projects": 3
+ },
+ {
+  "cluster": "RPT-C09",
+  "title": "Pre-issue self-consistency check",
+  "target": "QC rule + qc-reviewer",
+  "score": 32.0,
+  "hours": 8.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "RPT-C02",
+  "title": "Report-writer agent: end-to-end report/memo build and update",
+  "target": "agent report-writer",
+  "score": 26.5,
+  "hours": 8.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "RPT-C01",
+  "title": "Scripted report build on the Psomas template and Standard v0.3 chain",
+  "target": "drainage-report-build (update) + Standard v0.3 change",
+  "score": 24.5,
+  "hours": 8.8,
+  "cards": 5,
+  "projects": 5
+ },
+ {
+  "cluster": "RPT-C10",
+  "title": "Compiled bookmarked PDF",
+  "target": "Standard v0.3 change + drainage-report-build sec. 3 + QC rule",
+  "score": 24.3,
+  "hours": 5.4,
+  "cards": 5,
+  "projects": 5
+ },
+ {
+  "cluster": "RPT-C06",
+  "title": "Report formatting: tables, spacing, footers, references, cover",
+  "target": "QC rule + drainage-report-build/exhibit-standards sec. 2 + Standard v0.3 template",
+  "score": 21.0,
+  "hours": 4.25,
+  "cards": 4,
+  "projects": 3
+ },
+ {
+  "cluster": "RPT-C14",
+  "title": "Proposal / SOQ / interview drainage content",
+  "target": "new skill proposal-drainage-approach",
+  "score": 20.0,
+  "hours": 5.5,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "RPT-C05",
+  "title": "Agency comment register and response matrix",
+  "target": "new skill agency-comment-response + add-on pima-county-rfcd",
+  "score": 15.0,
+  "hours": 6.0,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "RPT-C12",
+  "title": "Delivery and review package",
+  "target": "new skill delivery-package-build",
+  "score": 9.0,
+  "hours": 4.0,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "RPT-C03",
+  "title": "Report numbers only from structured results; presence is not acceptance",
+  "target": "QC rule + report-writer guard",
+  "score": 8.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "RPT-C11",
+  "title": "Appendix contents match titles; appendix order",
+  "target": "QC rule",
+  "score": 6.0,
+  "hours": 1.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "RPT-C15",
+  "title": "Crossing rise memo: exceedance duration and hazard",
+  "target": "new skill crossing-rise-impact-memo",
+  "score": 2.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ }
+]

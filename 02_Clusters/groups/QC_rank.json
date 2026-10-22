@@ -1,0 +1,218 @@
+[
+ {
+  "cluster": "QC-C11",
+  "title": "Structure tables match latest signed-sealed plans",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 366.0,
+  "hours": 10.0,
+  "cards": 5,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C21",
+  "title": "2D results acceptance (volume, boundaries, artifacts) before reuse or reporting",
+  "target": "QC rule (05_QC_Rules); enforced by agent model-run-supervisor; pre-check in hecras-result-rasters",
+  "score": 80.5,
+  "hours": 14.5,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "QC-C01",
+  "title": "Independent QC reviewer and submittal auditor",
+  "target": "agent qc-reviewer",
+  "score": 62.0,
+  "hours": 62.0,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C10",
+  "title": "Existing-conditions and approved-plan verification",
+  "target": "QC rule (05_QC_Rules); procedure input to agent due-diligence-researcher",
+  "score": 53.5,
+  "hours": 9.0,
+  "cards": 5,
+  "projects": 4
+ },
+ {
+  "cluster": "QC-C05",
+  "title": "EOR decision loop and design-basis changes",
+  "target": "QC rule (05_QC_Rules) + Standard v0.3 change (decision register)",
+  "score": 29.0,
+  "hours": 7.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C09",
+  "title": "Narrative text: carried-over text, framing, floodplain status",
+  "target": "QC rule (05_QC_Rules); FEMA items to jurisdiction add-on drainage-report-build/fema",
+  "score": 29.0,
+  "hours": 4.0,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "QC-C12",
+  "title": "Table formatting, appendix structure and package completeness",
+  "target": "QC rule (05_QC_Rules) + update drainage-report-build sec. 2 and 4",
+  "score": 29.0,
+  "hours": 3.5,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C08",
+  "title": "Internal consistency and numeric check",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 24.0,
+  "hours": 4.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C24",
+  "title": "Connector development and recovery",
+  "target": "agent connector-developer (new; sub-role of model-run-supervisor)",
+  "score": 24.0,
+  "hours": 4.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "QC-C22",
+  "title": "FLO-2D run checks (ERROR.CHK, stall watchdog, placeholder TOPO)",
+  "target": "QC rule (05_QC_Rules); enforced by agent model-run-supervisor",
+  "score": 21.0,
+  "hours": 13.0,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C03",
+  "title": "Comment reconciliation and response log",
+  "target": "new skill comment-response-log + QC rule (05_QC_Rules)",
+  "score": 20.0,
+  "hours": 20.0,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C16",
+  "title": "Crossing concept geometry and restricted-ROW layout",
+  "target": "new skill crossing-concept-layout + QC rule (05_QC_Rules)",
+  "score": 15.0,
+  "hours": 5.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "QC-C14",
+  "title": "Channel, outlet and erosion protection review",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 13.0,
+  "hours": 2.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C17",
+  "title": "Footprint, ROW, easement and trial-grading screening",
+  "target": "new skill grading-footprint-screening",
+  "score": 11.0,
+  "hours": 5.0,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "QC-C06",
+  "title": "Transmittal control: freeze, hold-until-final, final cleanup",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 10.5,
+  "hours": 2.5,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "QC-C02",
+  "title": "Pre-QC self-check and mock agency review",
+  "target": "agent qc-reviewer (pre-review mode, called by report-writer)",
+  "score": 10.0,
+  "hours": 9.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "QC-C20",
+  "title": "HEC-RAS unsteady input integrity (BC sets, names, precipitation)",
+  "target": "QC rule (05_QC_Rules); enforced by agent model-run-supervisor",
+  "score": 8.0,
+  "hours": 6.5,
+  "cards": 3,
+  "projects": 1
+ },
+ {
+  "cluster": "QC-C15",
+  "title": "Street drainage, spread and scupper review",
+  "target": "QC rule (05_QC_Rules); jurisdiction add-on drainage-report-build/sahuarita for any Town-specific values",
+  "score": 6.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "QC-C23",
+  "title": "Record-plan reading: keep WSEL, crest, invert, banktop separate",
+  "target": "QC rule (05_QC_Rules); used by agent due-diligence-researcher",
+  "score": 6.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "QC-C18",
+  "title": "Storm drain HGL routing and WQ retention below outlet",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 5.0,
+  "hours": 5.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "QC-C07",
+  "title": "Report values trace to native output and completed runs",
+  "target": "QC rule (05_QC_Rules) + update drainage-report-build",
+  "score": 4.5,
+  "hours": 3.5,
+  "cards": 6,
+  "projects": 6
+ },
+ {
+  "cluster": "QC-C19",
+  "title": "East Placer SWQP hydromod forms and CMP gallery depth",
+  "target": "jurisdiction add-on drainage-report-build/placer-county",
+  "score": 3.0,
+  "hours": 2.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "QC-C04",
+  "title": "Open items, checklist status and assembly gate",
+  "target": "Standard v0.3 change + QC rule (05_QC_Rules)",
+  "score": 1.4,
+  "hours": 1.4,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "QC-C13",
+  "title": "Drainage map symbology",
+  "target": "update drainage-report-exhibit-standards (checked by agent exhibit-reviewer)",
+  "score": 0.8,
+  "hours": 0.4,
+  "cards": 1,
+  "projects": 1
+ }
+]

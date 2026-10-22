@@ -1,0 +1,254 @@
+[
+ {
+  "cluster": "HYD-C02",
+  "title": "FLO-2D Pro unattended run harness on Windows (dialogs, locks, stale output, duplicates)",
+  "target": "new skill flo2d-run-harness (used by agent model-run-supervisor)",
+  "score": 151.0,
+  "hours": 5.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C01",
+  "title": "Long-running model run supervision (HEC-RAS and FLO-2D queues, status, hand-back)",
+  "target": "agent model-run-supervisor (core); engine add-ons in HYD-C02 (FLO-2D) and HYD-C11/C10 (HEC-RAS launch)",
+  "score": 142.0,
+  "hours": 20.5,
+  "cards": 5,
+  "projects": 4
+ },
+ {
+  "cluster": "HYD-C22",
+  "title": "EPA SWMM / Autodesk SSA hydrograph models calibrated to county peak methods",
+  "target": "new skill swmm-ssa-storm-drain + jurisdiction add-on swmm-ssa-storm-drain/placer-county-ca; see HYD-CF-04",
+  "score": 121.0,
+  "hours": 13.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C08",
+  "title": "Existing vs proposed impact comparison on matched models (common mesh/grid, control cases, dWSE)",
+  "target": "new skill impact-comparison (core) + QC rule; jurisdiction add-on impact-comparison/FEMA (44 CFR 65.12)",
+  "score": 108.0,
+  "hours": 37.0,
+  "cards": 6,
+  "projects": 5
+ },
+ {
+  "cluster": "HYD-C05",
+  "title": "FLO-2D natural-section 1D channel build and validity checks",
+  "target": "QC rule (05_QC_Rules) + new skill flo2d-channel-build (procedure); FEMA add-on",
+  "score": 101.0,
+  "hours": 11.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C11",
+  "title": "HEC-RAS 2D model build by script (rain-on-grid / inflow), alternatives and headless runs",
+  "target": "new skill hecras-2d-model-build; add-ons hecras-2d-model-build/pima-county-rfcd (TECH-018, TECH-033) and /town-of-marana (alluvial fan)",
+  "score": 68.0,
+  "hours": 20.5,
+  "cards": 6,
+  "projects": 6
+ },
+ {
+  "cluster": "HYD-C09",
+  "title": "HEC-RAS 2D numerical stability: SWE wetting-front triage and mesh-induced velocity spikes",
+  "target": "new skill hecras-2d-stability-triage",
+  "score": 58.0,
+  "hours": 14.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C21",
+  "title": "Legacy calc reproduction: FHWA Hydraulic Toolbox inlets, Hydraflow Storm Sewers, inlet bypass routing",
+  "target": "new agent legacy-calc-reproduction (proposed; separate context, 6-10 h) + new skill legacy-calc-native-rerun (Toolbox, Hydraflow, bypass graph procedures)",
+  "score": 48.5,
+  "hours": 17.0,
+  "cards": 4,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C10",
+  "title": "HEC-RAS native automation API (text/HDF edits, RasProcess, COM, RasMapperLib terrain)",
+  "target": "new skill hecras-native-automation (shared library module); referenced by HYD-C11",
+  "score": 43.5,
+  "hours": 9.0,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "HYD-C20",
+  "title": "HY-8 native culvert runs: file authoring, session hygiene, report export and independent check",
+  "target": "new skill hy8-native-runs (importable .hy8 writer + template + report export); update drainage-report-build section 3; add-on /caltrans (HDM Table 808.1)",
+  "score": 40.5,
+  "hours": 11.5,
+  "cards": 6,
+  "projects": 5
+ },
+ {
+  "cluster": "HYD-C06",
+  "title": "FLO-2D hydraulic structure setup (zero-flow culverts, HY-8 rating tables)",
+  "target": "QC rule (05_QC_Rules) + section in new skill flo2d-channel-build",
+  "score": 40.0,
+  "hours": 8.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C03",
+  "title": "Model run preflight: inflow chronology, run duration, double-counted inflows, line endings and file integrity",
+  "target": "QC rule (05_QC_Rules) - preflight gate run by agent model-run-supervisor before every launch",
+  "score": 29.0,
+  "hours": 15.0,
+  "cards": 5,
+  "projects": 3
+ },
+ {
+  "cluster": "HYD-C04",
+  "title": "FLO-2D engine build selection, stall bisection and legacy effective model conversion",
+  "target": "new skill flo2d-engine-build-and-legacy-conversion; add-on flo2d-engine-build-and-legacy-conversion/FEMA and /town-of-marana",
+  "score": 28.5,
+  "hours": 15.5,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C13",
+  "title": "Model set intake, plan/folder register and storage housekeeping (received or archived models)",
+  "target": "new skill model-set-intake-register + QC rule (plan citation in report); used by due-diligence-researcher and report-writer",
+  "score": 24.0,
+  "hours": 11.0,
+  "cards": 6,
+  "projects": 4
+ },
+ {
+  "cluster": "HYD-C28",
+  "title": "FLO-2D road drainage alternative screening loop",
+  "target": "agent model-run-supervisor (screening-loop mode) + new skill flo2d-alternative-screening; add-on /town-of-sahuarita",
+  "score": 24.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C18",
+  "title": "HEC-RAS 2025 beta GPU conversion limits",
+  "target": "QC rule (05_QC_Rules) + note in hecras-2d-model-build tool-version table",
+  "score": 20.0,
+  "hours": 5.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C27",
+  "title": "Concept drainage report framing: crossings, path continuity, alternatives and client decisions up front",
+  "target": "agent report-writer checklist + Standard v0.3 change (concept report intro); add-ons Town of Marana, Town of Sahuarita",
+  "score": 19.0,
+  "hours": 3.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C12",
+  "title": "Boundary inflow register for hybrid rain-on-grid plus inflow 2D models",
+  "target": "section in new skill hecras-2d-model-build (procedure) + QC rule (inflow reconciliation)",
+  "score": 18.0,
+  "hours": 6.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C19",
+  "title": "HEC-HMS scripted project build, detention routing and headless compute",
+  "target": "update skill drainage-report-build section 3 (HMS headless) + new skill hec-hms-scripted (template project + scripts); see HYD-CF-01",
+  "score": 15.6,
+  "hours": 5.3,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C16",
+  "title": "Screening models vs FEMA effective (lidar 1D, fixed-map floodway, proposal-stage screening)",
+  "target": "agent due-diligence-researcher (screening mode) + QC rule (screening labels); add-on /FEMA",
+  "score": 12.3,
+  "hours": 10.3,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C07",
+  "title": "FLO-2D nested grid handoff (upper outflow to lower inflow)",
+  "target": "new skill flo2d-nested-grids; add-on /pima-county-rfcd (TECH-033 Amendment A)",
+  "score": 9.0,
+  "hours": 4.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C25",
+  "title": "Collector channels, outlets and culverts in sediment-laden piedmont / alluvial areas",
+  "target": "QC rules (05_QC_Rules); jurisdiction add-on drainage-report-build/town-of-marana and /town-of-sahuarita",
+  "score": 7.0,
+  "hours": 4.0,
+  "cards": 4,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C26",
+  "title": "Hydraulic calc deliverables: native program output for the selected design, standard software, one-page printouts",
+  "target": "Standard v0.3 change (appendix rules) + QC rule; see HYD-CF-06/07",
+  "score": 6.0,
+  "hours": 4.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C17",
+  "title": "1D HEC-RAS networks: auto-generated regulatory wash floodplains and 1D-with-breakouts to mimic 2D",
+  "target": "new skill hecras-1d-network-build; add-on /pima-county-rfcd (Q100 >= 100 cfs regulatory washes)",
+  "score": 4.5,
+  "hours": 3.75,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C15",
+  "title": "Flow-section accounting from 2D/1D face output at railroads, breakouts and structures",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 4.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C23",
+  "title": "Storm drain tailwater and receiving-system capacity must be defensible",
+  "target": "QC rule (05_QC_Rules); jurisdiction notes Placer County CA, City of Tucson",
+  "score": 4.0,
+  "hours": 3.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HYD-C24",
+  "title": "FLO-2D development effects without building footprints (ARF, IRAINBUILDING, n, CN)",
+  "target": "jurisdiction add-on flo2d-channel-build/FEMA (or section of new skill flo2d-model-build)",
+  "score": 4.0,
+  "hours": 4.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HYD-C14",
+  "title": "2D result rasters, floodplain polygons and verification against RAS Mapper",
+  "target": "update skill hecras-result-rasters",
+  "score": 1.25,
+  "hours": 0.75,
+  "cards": 2,
+  "projects": 2
+ }
+]

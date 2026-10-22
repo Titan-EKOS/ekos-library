@@ -1,0 +1,137 @@
+[
+ {
+  "cluster": "EXH-C03",
+  "title": "Sheet standards: border, engineering scale, orientation, numbering, style consistency",
+  "target": "update drainage-report-exhibit-standards \u00a73 + QC rule",
+  "score": 83,
+  "hours": 3,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "EXH-C05",
+  "title": "Drainage map base content and labeling",
+  "target": "update drainage-report-exhibit-standards \u00a73 + QC rule",
+  "score": 76,
+  "hours": 6.5,
+  "cards": 4,
+  "projects": 4
+ },
+ {
+  "cluster": "EXH-C11",
+  "title": "Exhibit values driven from one register table",
+  "target": "QC rule + scripted-exhibit-sheets section",
+  "score": 68,
+  "hours": 11,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "EXH-C12",
+  "title": "CAD coordination and cut/boring exhibits",
+  "target": "update drainage-report-exhibit-standards \u00a73b + QC rule",
+  "score": 57,
+  "hours": 9,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "EXH-C01",
+  "title": "Scripted exhibit sheet framework",
+  "target": "new skill scripted-exhibit-sheets",
+  "score": 49.2,
+  "hours": 9.3,
+  "cards": 4,
+  "projects": 4
+ },
+ {
+  "cluster": "EXH-C06",
+  "title": "Location / vicinity / project-area map and defined limit terms",
+  "target": "update drainage-report-exhibit-standards \u00a73 + QC rule",
+  "score": 20,
+  "hours": 2,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "EXH-C15",
+  "title": "3D crossing renderings (Blender)",
+  "target": "new skill blender-crossing-renderings",
+  "score": 20,
+  "hours": 4,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "EXH-C07",
+  "title": "2D result exhibits: depth and difference symbology, storm sets, inflow labels",
+  "target": "update drainage-report-exhibit-standards \u00a73 + hecras-result-rasters QC + QC rule",
+  "score": 19,
+  "hours": 5.5,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "EXH-C02",
+  "title": "Exhibit render-and-review pass",
+  "target": "agent exhibit-reviewer",
+  "score": 16,
+  "hours": 3.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "EXH-C09",
+  "title": "FLO-2D output to GIS rasters and FEMA zone delineation",
+  "target": "new skill flo2d-result-mapping + add-on flo2d-result-mapping/FEMA",
+  "score": 13,
+  "hours": 7,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "EXH-C10",
+  "title": "FEMA floodplain and FIRM content on exhibits",
+  "target": "update drainage-report-exhibit-standards \u00a73 + add-on /FEMA + QC rule",
+  "score": 4.6,
+  "hours": 1.6,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "EXH-C13",
+  "title": "Hydraulic Toolbox inlet output for appendices",
+  "target": "new skill hydraulic-toolbox-inlet-sheets + Standard v0.3 change",
+  "score": 4.5,
+  "hours": 1.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "EXH-C08",
+  "title": "Result raster provenance, naming and delivery package",
+  "target": "update hecras-result-rasters",
+  "score": 1.5,
+  "hours": 0.5,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "EXH-C04",
+  "title": "Legends: graphic samples, only symbols present, warn on empty layers",
+  "target": "update drainage-report-exhibit-standards \u00a73 + QC rule",
+  "score": 1,
+  "hours": 1,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "EXH-C14",
+  "title": "Civil 3D LandXML/DWG handoff",
+  "target": "new skill civil3d-landxml-handoff",
+  "score": 0.4,
+  "hours": 0.2,
+  "cards": 1,
+  "projects": 1
+ }
+]

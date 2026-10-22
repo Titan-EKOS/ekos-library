@@ -1,0 +1,209 @@
+[
+ {
+  "cluster": "HJR-C21",
+  "title": "FEMA CLOMR/LOMR submittal management: AD response, concept phases, community items",
+  "target": "new skill fema-clomr-lomr-submittal (= add-on drainage-report-build/fema) + agent model-run-supervisor (rerun-all gate)",
+  "score": 66.0,
+  "hours": 38.0,
+  "cards": 3,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C15",
+  "title": "Placer County hydrology: Small Watershed peaks, nested design storm, crest side, peak-only limit",
+  "target": "jurisdiction add-on drainage-report-build/placer-county (with scripts sw.py, storms.py as add-on tools)",
+  "score": 55.0,
+  "hours": 17.0,
+  "cards": 4,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C17",
+  "title": "Groundwater displacement and reinfiltration sizing",
+  "target": "new skill groundwater-reinfiltration-sizing (core) with add-on /placer-county (5 ft SHGW, TRPA)",
+  "score": 50.0,
+  "hours": 10.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C01",
+  "title": "PC-Hydro 7.4 web app execution (interactive and batch)",
+  "target": "update pchydro-hydrographs (Phase 2 + new reference/pchydro_batch_automation.md)",
+  "score": 43.0,
+  "hours": 7.0,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "HJR-C10",
+  "title": "Design discharge traceability: one value, one qualifier, one source per flow",
+  "target": "QC rule 05_QC_Rules + report-writer/qc-reviewer check; Standard v0.3 change (design discharge table)",
+  "score": 25.0,
+  "hours": 5.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HJR-C16",
+  "title": "East Placer / TRPA water quality and BMP criteria checklist",
+  "target": "jurisdiction add-on drainage-report-build/placer-county (WQ/BMP checklist) + QC rules",
+  "score": 22.0,
+  "hours": 8.0,
+  "cards": 3,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C22",
+  "title": "Criteria research before scoping or coordination meetings",
+  "target": "agent due-diligence-researcher (separate from minutes/report writer); add-ons /town-of-sahuarita, /caltrans-california",
+  "score": 21.3,
+  "hours": 3.3,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HJR-C07",
+  "title": "Watershed delineation and area accounting (nested areas, topo support, tributary roadway/storm drain)",
+  "target": "QC rule 05_QC_Rules + update drainage-report-build Sec. 1 + drainage-report-exhibit-standards; add-on drainage-report-build/city-of-tucson",
+  "score": 18.0,
+  "hours": 4.5,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "HJR-C19",
+  "title": "Confirm reviewing agency and follow its report outline",
+  "target": "update drainage-report-build Sec. 0 + Standard v0.3 change (outline per agency, Intentionally left blank rule); add-on /city-of-tucson",
+  "score": 12.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C12",
+  "title": "Critical facility 500-yr basis and FEMA floodplain discussion",
+  "target": "update drainage-report-build Sec. 1 + drainage-report-exhibit-standards (critical facility line); add-ons /town-of-marana, /city-of-tucson, /pima-rfcd, /fema",
+  "score": 11.0,
+  "hours": 4.0,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "HJR-C05",
+  "title": "HEC-HMS headless build, batch compute, rerun and DSS extraction",
+  "target": "new skill hechms-headless (core) + add-on hechms-headless/pima-rfcd (TECH-018); drainage-report-build Sec. 3 points to it",
+  "score": 10.5,
+  "hours": 2.5,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "HJR-C03",
+  "title": "PC-Hydro hydrograph export QC: 1-min step, audited peak adjustment, volume, DSS transfer",
+  "target": "update pchydro-hydrographs (Phase 3/4) + QC rule 05_QC_Rules",
+  "score": 8.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C11",
+  "title": "Adopting published regional or effective hydrology as the design basis",
+  "target": "update drainage-report-build Sec. 0 (core) + agent due-diligence-researcher; add-ons /town-of-sahuarita (LMW) and /fema",
+  "score": 6.5,
+  "hours": 3.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HJR-C08",
+  "title": "Unsurveyed basin outlet topology: as-built search and versioned owner assumptions",
+  "target": "QC rule 05_QC_Rules + agent due-diligence-researcher (records search) + model-run-supervisor (scenario versioning)",
+  "score": 6.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C23",
+  "title": "Road alignment along a berm in a distributary flow area",
+  "target": "add-on drainage-report-build/town-of-sahuarita (Lee Moore Wash criteria) with core decision note in drainage-report-build Sec. 1",
+  "score": 6.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C09",
+  "title": "Preliminary detention, first-flush and sediment storage with per-pod ledger",
+  "target": "update drainage-report-build Sec. 1 (core) + add-on drainage-report-build/pima-rfcd",
+  "score": 4.6,
+  "hours": 1.3,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HJR-C20",
+  "title": "Inlet clogging and sump grate factors",
+  "target": "add-on drainage-report-build/pima-rfcd (RDM Table 2-9) + QC rule 05_QC_Rules",
+  "score": 4.5,
+  "hours": 1.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C14",
+  "title": "Governing manual and hydrology method selection by jurisdiction",
+  "target": "update drainage-report-build Sec. 0 (core method-selection step) + add-ons /pima-rfcd, /town-of-marana, /caltrans-california",
+  "score": 4.4,
+  "hours": 1.4,
+  "cards": 3,
+  "projects": 3
+ },
+ {
+  "cluster": "HJR-C13",
+  "title": "Imperviousness and cover from classified imagery need independent labels",
+  "target": "QC rule 05_QC_Rules",
+  "score": 4.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C06",
+  "title": "Closed depressions bracketed as contributing and non-contributing",
+  "target": "new skill hechms-headless (section: depression bracketing) + agent model-run-supervisor (paired runs)",
+  "score": 3.0,
+  "hours": 1.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C02",
+  "title": "GIS concentration points, watersheds, .pk6 inputs and offsite inflow points",
+  "target": "update pchydro-hydrographs (new Phase 1b: GIS build of .pk6)",
+  "score": 2.0,
+  "hours": 1.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "HJR-C04",
+  "title": "PC-Hydro input rules: default cover on graded ground, native runoff parameters, Tc",
+  "target": "update drainage-report-build Sec. 3 + pchydro-hydrographs operating rules",
+  "score": 1.0,
+  "hours": 0.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "HJR-C18",
+  "title": "NRCS CN calibration to FIS and regression on clay foothill basins",
+  "target": "add-on hechms-headless/caltrans-california + QC rule 05_QC_Rules (calibrate-or-justify any uncalibrated CN model)",
+  "score": 1.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ }
+]

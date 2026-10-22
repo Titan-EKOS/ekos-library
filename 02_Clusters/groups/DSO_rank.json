@@ -1,0 +1,299 @@
+[
+ {
+  "cluster": "DSO-C28",
+  "title": "Cloud supervisor budget: one plan, one exception packet, one final QA",
+  "target": "agent ekos-local-supervisor (cloud supervision policy)",
+  "score": 200.0,
+  "hours": 10.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C17",
+  "title": "Consultant CAD base reissue: archive, swap, list changes, flag rework",
+  "target": "new skill cad-base-update",
+  "score": 88.0,
+  "hours": 8.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C27",
+  "title": "Persistent local queue worker: dependencies, failure capture, idle detection",
+  "target": "agent ekos-local-supervisor (queue worker component)",
+  "score": 88.0,
+  "hours": 4.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C02",
+  "title": "Prior and adjacent study screen with CP concordance",
+  "target": "agent due-diligence-researcher (module: prior-study-screen)",
+  "score": 28.0,
+  "hours": 10.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C26",
+  "title": "Unattended local supervisor: manifest, loop guards, completion gates, honest end-state alerts",
+  "target": "agent ekos-local-supervisor",
+  "score": 20.0,
+  "hours": 7.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C16",
+  "title": "HEC-RAS project hygiene: plans, geometries, versions, copies",
+  "target": "new skill hecras-project-hygiene (used by model-run-supervisor)",
+  "score": 18.0,
+  "hours": 6.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C30",
+  "title": "Local model gateway: context budget, structured output, model roles",
+  "target": "new skill local-model-gateway",
+  "score": 18.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C22",
+  "title": "Civil 3D base reconstruction from PDF DCR and GIS linework",
+  "target": "new skill civil3d-reconstruction-from-pdf",
+  "score": 16.0,
+  "hours": 4.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C06",
+  "title": "Record plan and field-book retrieval with OCR provenance",
+  "target": "new skill record-plan-retrieval (+ add-on City of Tucson)",
+  "score": 15.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C23",
+  "title": "EKOS workstation environment rules for scripts and agents",
+  "target": "new skill ekos-environment-rules (load in every EKOS agent)",
+  "score": 15.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C13",
+  "title": "Project intake and folder setup: local-file check, inventory, standards, findings, one-page scope",
+  "target": "new skill project-intake (feeds due-diligence-researcher)",
+  "score": 12.5,
+  "hours": 5.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C21",
+  "title": "Civil 3D automation: seat check, NETLOAD helpers, modal dialogs, completion markers",
+  "target": "new skill civil3d-automation",
+  "score": 12.0,
+  "hours": 4.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C05",
+  "title": "Verify CRS, units and vertical datum of incoming survey/CAD/GIS against the model grid",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 11.0,
+  "hours": 4.0,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C07",
+  "title": "Verify existing conditions against governing as-builts, current imagery and regional flow paths",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 10.5,
+  "hours": 2.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C25",
+  "title": "Long model jobs must survive session restarts",
+  "target": "agent model-run-supervisor",
+  "score": 10.0,
+  "hours": 2.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C08",
+  "title": "Plan-to-report-to-calc crosswalk for inlets, pipes and culverts",
+  "target": "new skill plan-calc-crosswalk (used by qc-reviewer)",
+  "score": 9.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C09",
+  "title": "Reference library intake and local RAG with page citations",
+  "target": "new skill reference-library-intake",
+  "score": 8.0,
+  "hours": 4.0,
+  "cards": 2,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C29",
+  "title": "Shared knowledge base lesson lifecycle for local models",
+  "target": "new skill knowledge-lesson-lifecycle",
+  "score": 8.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C20",
+  "title": "Confirm the controlling submitted version before revising",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 6.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C24",
+  "title": "Engineering software install and validation (FLO-2D Pro + QGIS plugin, CFD engines)",
+  "target": "new skill software-install-validation",
+  "score": 5.5,
+  "hours": 3.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C31",
+  "title": "Deliverable package assembly, naming and OneDrive delivery",
+  "target": "Standard v0.3 change (deliverable packaging) / drainage-report-build sec 4",
+  "score": 4.8,
+  "hours": 1.4,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C04",
+  "title": "Terrain build from USGS 3DEP and composite DEM sources",
+  "target": "new skill terrain-dem-build (+ add-on Pima County RFCD)",
+  "score": 4.2,
+  "hours": 3.2,
+  "cards": 4,
+  "projects": 4
+ },
+ {
+  "cluster": "DSO-C18",
+  "title": "Phase coordination tracker and meeting agenda/minutes kit",
+  "target": "new skill project-coordination-tracker",
+  "score": 4.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C03",
+  "title": "Public GIS and hydrology data harvest by REST/API",
+  "target": "new skill public-gis-data-harvest (+ add-on FEMA)",
+  "score": 3.7,
+  "hours": 1.5,
+  "cards": 3,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C12",
+  "title": "Damaged project archive recovery and lost-model rebuild",
+  "target": "new skill archive-recovery",
+  "score": 3.0,
+  "hours": 3.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C11",
+  "title": "Official boundary GIS before any acreage or overlap numbers",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 2.0,
+  "hours": 2.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C15",
+  "title": "Continuation file for multi-session work",
+  "target": "new skill session-continuation",
+  "score": 2.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C32",
+  "title": "Concept site plan layout chain to drive proposed-conditions H&H",
+  "target": "new skill concept-site-layout",
+  "score": 2.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C01",
+  "title": "Due-diligence research pass: jurisdiction, standards harvest, data requests",
+  "target": "agent due-diligence-researcher",
+  "score": 1.5,
+  "hours": 1.5,
+  "cards": 2,
+  "projects": 2
+ },
+ {
+  "cluster": "DSO-C33",
+  "title": "Bluebeam Revu MCP and OCR setup for markup-driven review",
+  "target": "new skill bluebeam-mcp-setup",
+  "score": 1.5,
+  "hours": 1.5,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C10",
+  "title": "Source files are read-only: work on scratch copies, hash before and after",
+  "target": "QC rule (05_QC_Rules)",
+  "score": 1.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C19",
+  "title": "Constraint-matrix construction phasing for long channel projects (proposal stage)",
+  "target": "new skill construction-phasing-plan",
+  "score": 1.0,
+  "hours": 1.0,
+  "cards": 1,
+  "projects": 1
+ },
+ {
+  "cluster": "DSO-C14",
+  "title": "End-to-end rerun kit: folders, library prerequisites, run order and wall-time budget",
+  "target": "Standard v0.3 change (run order + rerun kit) / agent model-run-supervisor",
+  "score": 0.5,
+  "hours": 0.5,
+  "cards": 2,
+  "projects": 2
+ }
+]
