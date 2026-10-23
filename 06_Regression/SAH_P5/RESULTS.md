@@ -51,5 +51,16 @@ Library issues found: P5-02, P5-03, P5-04, P5-05.
   finding M-01.
 - K02 stall (89.8 h vs 0.63 h): not caught by the completion check after the fact (wall time is a live-run check).
 
+## 3b. RAS volume error - trial and cause
+- Trial: p01 at 1SEC finished with 0.283 pct volume error (2SEC original 0.270 pct); wall 4.21 h on cores 12-27.
+  Time step is not the cause; the 1SEC queue was not launched.
+- Diagnosis (read-only, HDF volume accounting and residual cells): p01 error is about 2 ac-ft of 698 ac-ft in;
+  p06 5.2 of 1348 ac-ft. Cell 191222 holds the max volume residual in 71 pct of p06 steps and 51 pct of p01 steps.
+  It sits at the I-19 crossing, where NBI-05788, NBI-06342 and NBI-06343 are three SA/2D connections stacked 5 ft
+  apart, each about 530 ft long across the corridor: three parallel culverts in one place. The structures are really
+  in series (west ramp 3-10x4, mainline 3-10x5, east ramp 3-10x5). Same defect as FLO-2D M-01, in both models.
+  Second residual cluster at the UPRR connection DUPRR-KH. -> new finding M-03.
+- RAS rerun stopped; next step (JCO): rebuild the crossing in series in the RAS geometry, test p01/p06 at 2SEC.
+
 ## 4. Pending
-- RAS 1SEC trial (p01) then full queue; FLO-2D 10 pairs (started 2026-10-22 18:50); time and rework scoring.
+- FLO-2D 10 pairs (started 2026-10-22 18:50); time and rework scoring; RAS crossing rebuild (JCO).
