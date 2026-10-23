@@ -1,0 +1,12 @@
+{
+  "note": "Decision D07. Dialogs matching an entry are answered and logged; all others stop and notify. Add entries only after JCO reviews the logged text from a real run. Record the card or run that justified each entry.",
+  "entries": [
+    {
+      "id": "end-of-run-summary",
+      "title_regex": ".*",
+      "text_regex": "(simulation|run).*(complete|finished|normal termination)|COMPUTER RUN TIME",
+      "button": "Close",
+      "basis": "STARVALLEY-019: end-of-run summary dialog must be closed so TMP files clear. Confirm the exact text on the first logged run and tighten the regex."
+    }
+  ]
+}

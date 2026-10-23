@@ -53,9 +53,10 @@ def list_skills(filter: str = "") -> Any:
 
 
 @mcp.tool()
-def get_skill(name: str) -> Any:
-    """Full SKILL.md text, metadata and resource file list for one skill."""
-    return _wrap(_lib().get_skill, name)
+def get_skill(name: str, resource: str = "") -> Any:
+    """Full SKILL.md text, metadata and resource file list for one skill.
+    resource: optional relative path of one resource (e.g. 'addons/pima-county-rfcd.md') to read instead."""
+    return _wrap(_lib().get_skill, name, resource or None)
 
 
 @mcp.tool()
@@ -65,9 +66,9 @@ def list_agents() -> Any:
 
 
 @mcp.tool()
-def get_agent(name: str) -> Any:
-    """Full AGENT.md text and metadata for one agent."""
-    return _wrap(_lib().get_agent, name)
+def get_agent(name: str, resource: str = "") -> Any:
+    """Full AGENT.md text and metadata for one agent (or one resource file of it)."""
+    return _wrap(_lib().get_agent, name, resource or None)
 
 
 @mcp.tool()

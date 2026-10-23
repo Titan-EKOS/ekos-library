@@ -1,0 +1,117 @@
+id,title,scope,source_cards
+QC-0001,Report numbers trace to output rows,report-text tables culverts,EKOS-LOCAL-016 SAHPARK-015 RKN-005 RKN-001 SAH-012
+QC-0002,Run matrix matches narrative,report-text model-runs,SAH-017 SAH-003
+QC-0003,"Design discharge: one value, one qualifier, one source",report-text tables hydrology,BARNETT-006 SAHPARK-003 PHXZOO-007 NORTHLOOP-010
+QC-0004,Design-value changes need a decision record,report-text tables,VALENCIA-011 CAMPBELL-014
+QC-0005,No carried-over text or unverified design claims,report-text,VALENCIA-024 CAMPBELL-017 TANGERINE-019
+QC-0006,Agency outline followed; no empty headings,report-text,TANGERINE-017 SAHPARK-002 SAHPARK-001
+QC-0007,Existing conditions content is complete,report-text existing-conditions,SAHPARK-002 TANGERINE-020 CAMPBELL-017
+QC-0008,Analysis narrative content,report-text hydrology hydraulics-2d,CAMPBELL-017
+QC-0009,Terms and style used consistently,report-text exhibits,CAMPBELL-017 TANGERINE-020 BARNETT-007 BARNETT-008 VALENCIA-020 BARNETT-006
+QC-0010,Internal numeric and statement consistency,report-text tables,BARNETT-009 TANGERINE-014
+QC-0011,Floodplain status statement,report-text fema sahuarita,PHXZOO-007 BARNETT-005
+QC-0012,Concept report framing,report-text,TANGERINE-012 BARNETT-011 PHXZOO-005
+QC-0013,Claims match content and analysis,report-text,BARNETT-003 HOMEWOOD-015
+QC-0014,Deliverable and proposal wording,report-text package,EKOS-LOCAL-016 STARVALLEY-020 ELTORO-019 ELTORO-020 SILVERBELL-016
+QC-0015,Report layout and formatting,report-text,RKN-014 SAHPARK-005 TANGERINE-018 SAHPARK-015 RKN-015
+QC-0016,"Table style, captions and precision",tables,SAHPARK-004 VALENCIA-021 RKN-014 TANGERINE-018
+QC-0017,Structure tables match latest signed-sealed plans,tables culverts,VALENCIA-016 TANGERINE-013
+QC-0018,Crossing table complete and consistent,tables culverts exhibits,TANGERINE-013 BARNETT-009
+QC-0019,"IDs agree across maps, tables and appendix",tables exhibits appendix,ELTORO-013 ELTORO-008 VALENCIA-017
+QC-0020,Elevation datum and facility sizes,tables crs storm-drain,HOMEWOOD-015 HOMEWOOD-018
+QC-0021,Calc workbook reuse and recalculation,tables,VALENCIA-014
+QC-0022,Exhibit sheet standards,exhibits,SAHPARK-008 TANGERINE-022 SAH-019 BARNETT-008 CAMPBELL-018 VALENCIA-023 NORTHLOOP-011 RKN-012 CAMPBELL-016 HOMEWOOD-020
+QC-0023,Legends show only mapped symbols as graphic samples,exhibits,NORTHLOOP-012 TANGERINE-022 SAHPARK-007 CALFIRE-017 RKN-012 HOMEWOOD-020 SAHPARK-006
+QC-0024,Drainage map base and context labels,exhibits,SAHPARK-007 CAMPBELL-018 VALENCIA-023 TANGERINE-022 TANGERINE-006
+QC-0025,Drainage map infrastructure and node labels,exhibits,RKN-013 CAMPBELL-018 VALENCIA-023 TANGERINE-022 SAHPARK-007
+QC-0026,Watershed exhibits supported by topography,exhibits hydrology,TANGERINE-023 EKOS-LOCAL-008
+QC-0027,Location and project-area maps,exhibits,BARNETT-007 TANGERINE-022 VALENCIA-023
+QC-0028,Result map symbology,exhibits hydraulics-2d flo2d,SAHPARK-006 CAMPBELL-018 TANGERINE-006 SAHPARK-009 CAMPBELL-016 ELTORO-015
+QC-0029,Difference map symbology,exhibits hydraulics-2d flo2d,CAMPBELL-016 DLR-005
+QC-0030,FEMA floodplain content on exhibits,exhibits fema,SAHPARK-010 CALFIRE-017 TANGERINE-021 VALENCIA-023 SILVERBELL-017 TANGERINE-008
+QC-0031,Exhibit values come from one register,exhibits tables,ELTORO-016 HOMEWOOD-018 SAHPARK-009
+QC-0032,CAD coordination and cut exhibits,exhibits,HOMEWOOD-020 HOMEWOOD-019
+QC-0033,Exhibit render-and-review pass,exhibits package,SAH-019 TANGERINE-022 NORTHLOOP-011 RKN-018
+QC-0034,Nested and tributary area accounting,hydrology,EKOS-LOCAL-008 TANGERINE-024
+QC-0035,PC-Hydro native output matches report,hydrology tables,RKN-005
+QC-0036,PC-Hydro inputs and hydrograph exports,hydrology model-runs,NORTHLOOP-013 EKOS-LOCAL-007
+QC-0037,Uncalibrated CN models compared to independent estimates,hydrology caltrans,CALFIRE-007
+QC-0038,Percent impervious has a stated source,hydrology,EKOS-LOCAL-019
+QC-0039,500-yr basis stated once,hydrology fema marana tucson pima-rfcd,NORTHLOOP-010 NORTHLOOP-006 TANGERINE-021
+QC-0040,"Detention, first-flush and sediment basins shown separately",hydrology storm-drain pima-rfcd,TANGERINE-015
+QC-0041,2D volume accounting acceptance,hydraulics-2d flo2d model-runs,CAMPBELL-002 CALFIRE-010
+QC-0042,Boundaries and result plausibility,hydraulics-2d,CALFIRE-010 PHXZOO-006
+QC-0043,Reused or converted 2D models screened,hydraulics-2d model-runs,PHXZOO-006 CAMPBELL-006
+QC-0044,Unsteady flow files and precipitation verified,hydraulics-2d model-runs,ELTORO-002 ELTORO-003 ELTORO-006
+QC-0045,Boundary inflow register reconciled,hydraulics-2d hydrology,ELTORO-001 CAMPBELL-010
+QC-0046,Cited plans exist and are condition-specific,hydraulics-2d report-text,TANGERINE-004 SAHPARK-016 DLR-001
+QC-0047,"Flow accounting at railroads, breakouts and structures",hydraulics-2d culverts,CAMPBELL-009
+QC-0048,Matched models for impact comparison,hydraulics-2d flo2d,STARVALLEY-007 TANGERINE-003 CAMPBELL-008 ELTORO-017 STARVALLEY-008 NORTHLOOP-009
+QC-0049,Impact and no-rise claims,hydraulics-2d report-text fema marana,TANGERINE-003 CAMPBELL-008 SILVERBELL-016 CALFIRE-011 SILVERBELL-001 SILVERBELL-002
+QC-0050,Manning n basis,hydraulics-2d flo2d,TANGERINE-001 TANGERINE-003 NORTHLOOP-014
+QC-0051,Result raster provenance and spot check,hydraulics-2d exhibits,DLR-004 DLR-006 CAMPBELL-003
+QC-0052,FLO-2D text inputs use CRLF,flo2d model-runs,STARVALLEY-001
+QC-0053,"ERROR.CHK, structure and levee data clean",flo2d model-runs,SAH-006
+QC-0054,Proposed TOPO free of placeholder surfaces,flo2d existing-conditions,STARVALLEY-015
+QC-0055,FLO-2D 1D channel geometry valid,flo2d,STARVALLEY-002
+QC-0056,Grade-control drops kept in channel geometry,flo2d culverts,STARVALLEY-016
+QC-0057,FLO-2D hydraulic structures pass flow,flo2d culverts,STARVALLEY-012 STARVALLEY-004
+QC-0058,FLO-2D build recorded,flo2d model-runs marana,NORTHLOOP-003 STARVALLEY-004
+QC-0059,"Capacity, freeboard and protection values",culverts tables,ELTORO-012 CAMPBELL-019
+QC-0060,Culverts in sediment-laden piedmont areas,culverts sahuarita marana,SAHPARK-020
+QC-0061,Crossing geometry and restricted ROW,culverts existing-conditions pima-rfcd,SILVERBELL-003 SILVERBELL-004 SILVERBELL-008
+QC-0062,"Channels described, sized and tabulated",culverts tables marana,VALENCIA-019 NORTHLOOP-014 NORTHLOOP-015 NORTHLOOP-016
+QC-0063,Storm drain HGL routing and freeboard,storm-drain placer,HOMEWOOD-006
+QC-0064,Receiving system and tailwater,storm-drain tucson placer,HOMEWOOD-010 TANGERINE-025
+QC-0065,WQ volume retained below the lowest outlet,storm-drain hydrology,HOMEWOOD-007 HOMEWOOD-018
+QC-0066,"Inlet, scupper and storm drain tables match plans",storm-drain tables,VALENCIA-017 VALENCIA-018 ELTORO-011
+QC-0067,Inflow series and run duration,model-runs flo2d hydraulics-2d,NORTHLOOP-004 NORTHLOOP-005 CAMPBELL-010
+QC-0068,Preflight gate before launch,model-runs flo2d hydraulics-2d,STARVALLEY-003 NORTHLOOP-004 CAMPBELL-010
+QC-0069,Run supervision and completion,model-runs flo2d,SAH-003 STARVALLEY-021
+QC-0070,Source integrity and model intake,model-runs existing-conditions,NORTHLOOP-018 ELTORO-006 DLR-001 NORTHLOOP-006 DLR-003 CAMPBELL-011 NORTHLOOP-001 EKOS-LOCAL-023
+QC-0071,Existing conditions verified against current records,existing-conditions,BARNETT-005 ELTORO-008 ELTORO-023 SAHPARK-014
+QC-0072,As-built and approved-plan rechecks,existing-conditions culverts,ELTORO-014 STARVALLEY-023
+QC-0073,Assumption log verified and reported,existing-conditions appendix,SAH-014
+QC-0074,Model inputs read from records cite source,existing-conditions hydrology,EKOS-LOCAL-014 EKOS-LOCAL-015
+QC-0075,"Footprint, easement and grading screening",existing-conditions,CAMPBELL-022 NORTHLOOP-017 SILVERBELL-008
+QC-0076,Acreage from official boundary GIS,existing-conditions tables pima-rfcd,TANGERINE-007
+QC-0077,"Incoming CAD, GIS and survey placed by known points",crs existing-conditions,STARVALLEY-014 NORTHLOOP-019
+QC-0078,"Datum, realization and units recorded",crs pima-rfcd,NORTHLOOP-019 SILVERBELL-007 DLR-002 STARVALLEY-014
+QC-0079,Native output in the appendix,appendix report-text,CALFIRE-015 RKN-015 ELTORO-010 RKN-018
+QC-0080,"Appendix titles, order and contents",appendix,SAHPARK-011 HOMEWOOD-015
+QC-0081,Appendix organization and removed analyses,appendix,VALENCIA-021 VALENCIA-022
+QC-0082,Hydraulic calc deliverables,appendix culverts,SAHPARK-012 SAHPARK-013 VALENCIA-021
+QC-0083,Zero placeholders in transmitted files,package comment-response,STARVALLEY-004 STARVALLEY-005 STARVALLEY-020 SAH-013
+QC-0084,Assembly gate and open items,package,SAH-013 RKN-018 VALENCIA-011
+QC-0085,Checklist status agrees with open items,package comment-response,CALFIRE-016 RKN-018
+QC-0086,"Transmittal control: freeze, hold list and final cleanup",package,SILVERBELL-011 BARNETT-010 VALENCIA-020
+QC-0087,Compiled PDF navigation,package,TANGERINE-016 TANGERINE-011 CALFIRE-014 CAMPBELL-020 VALENCIA-008
+QC-0088,"Compiled PDF print state, pages and size",package,CALFIRE-014 VALENCIA-008 CAMPBELL-020 RKN-015 SAH-012
+QC-0089,Package contents and hygiene,package,ELTORO-013 HOMEWOOD-022 DLR-006 HOMEWOOD-015
+QC-0090,Model package outputs current,package model-runs,STARVALLEY-005 STARVALLEY-004
+QC-0091,Revisions start from the as-submitted version,package report-text,BARNETT-013 CAMPBELL-023
+QC-0092,Comment log complete with status and disposition,comment-response,BARNETT-001 BARNETT-002 SAHPARK-017
+QC-0093,Response wording and placement,comment-response,CAMPBELL-015 BARNETT-002 BARNETT-001
+QC-0094,Responses verified against the issued files,comment-response package,BARNETT-001 STARVALLEY-005
+QC-0095,Pre-QC self-check before JCO review,comment-response report-text,SAHPARK-018
+QC-0096,Mock review sets merged by source ID,comment-response,TANGERINE-001
+QC-0097,FEMA package build and file gate,fema package flo2d,STARVALLEY-004
+QC-0098,"FEMA cross-model identity, warnings and GIS",fema package flo2d,STARVALLEY-004 STARVALLEY-020 STARVALLEY-001 STARVALLEY-003
+QC-0099,FEMA additional-data responses and community items,fema comment-response,STARVALLEY-006 STARVALLEY-017 STARVALLEY-018
+QC-0100,Effective model complete before duplicate effective,fema hydrology hydraulics-2d,STARVALLEY-022 CALFIRE-011 SILVERBELL-001
+QC-0101,FEMA 44 CFR 65.12 rise evaluation,fema hydraulics-2d flo2d,STARVALLEY-008
+QC-0102,Pima inlet clogging factors,pima-rfcd storm-drain,VALENCIA-012
+QC-0103,Street spread and ROW velocity,pima-rfcd sahuarita storm-drain,ELTORO-011
+QC-0104,City of Tucson report outline,tucson report-text,TANGERINE-017
+QC-0105,City of Tucson inlet capture and storm drain base,tucson hydrology storm-drain,TANGERINE-024
+QC-0106,Critical facility above the 500-yr WSE,tucson pima-rfcd fema exhibits,TANGERINE-021
+QC-0107,Town of Marana governing manual and FEMA coordination,marana report-text fema,BARNETT-004
+QC-0108,Town of Marana design discharges and channels,marana hydrology culverts,BARNETT-006 NORTHLOOP-003 NORTHLOOP-015 TANGERINE-003
+QC-0109,Town of Marana critical facilities and FLO-2D build,marana flo2d hydrology,NORTHLOOP-003
+QC-0110,"Town of Sahuarita design events, citations and cutoff walls",sahuarita pima-rfcd report-text culverts,SAHPARK-003 SAHPARK-011 SAHPARK-020
+QC-0111,Placer County manuals and hydrology method,placer hydrology,HOMEWOOD-013 HOMEWOOD-012 HOMEWOOD-011
+QC-0112,Placer County storm drain criteria,placer storm-drain,HOMEWOOD-006 HOMEWOOD-010
+QC-0113,Placer County water quality volume,placer storm-drain hydrology,HOMEWOOD-008
+QC-0114,Placer County hydromodification forms,placer hydrology,HOMEWOOD-014
+QC-0115,"Placer County BMP siting, infiltration and gallery depth",placer storm-drain,HOMEWOOD-009 HOMEWOOD-013 HOMEWOOD-017
+QC-0116,Caltrans bridge data and hydrology review,caltrans hydraulics-2d hydrology,CALFIRE-011 CALFIRE-007

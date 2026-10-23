@@ -1,0 +1,21 @@
+# EKOS Library card template. Copy one block per card into cards.yaml (a YAML list).
+# Lessons and file paths only. No client data, people's names, emails, phones, parcel numbers or street addresses.
+# The server adds project, source_ai, timestamp and schema_version; do not add them here.
+- id: <JOB>-001                      # job number + sequential number
+  title: <short title>
+  type: qc_rule                      # skill | agent | qc_rule
+  function: qc                       # data-gathering | hydrology | hydraulics-model-run | exhibits | report-assembly | compile-pdf | qc | jurisdiction-rules | project-setup | other
+  trigger: <when this applies>
+  steps:
+    - <concrete step or testable check>
+    - <next step>
+  gotchas:
+    - <what failed, and the fix>
+  jurisdiction: <e.g. Pima County RFCD>
+  tools_versions: <e.g. HEC-RAS 6.6, PC-Hydro 7.4>
+  evidence:
+    - <full file path>
+    - <full file path> p.<N> comment <M> (JCO)
+  hours_lost: 0.0                    # estimate; state the method in the harvest report
+  recurrence: 1                      # times it came up in this project
+  confidence: medium                 # high | medium | low

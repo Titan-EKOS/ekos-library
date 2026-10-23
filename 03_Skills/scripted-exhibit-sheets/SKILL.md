@@ -1,0 +1,180 @@
+---
+name: scripted-exhibit-sheets
+description: Build exhibit sheet sets by Python script (matplotlib/rasterio/geopandas) from GIS layers, model rasters and a value register, on one 11x17 sheet template that passes the drainage-report-exhibit-standards checks; includes register-driven Q and volume labels and FLO-2D result mapping. Use for review, screening and result-map series (and report exhibits only when JCO accepts scripted figures), never as a silent substitute for editable QGIS/CAD exhibits.
+version: 1.0.0
+status: active
+function: exhibits
+jurisdiction: all
+tools_versions: "Python 3.12 GIS env: numpy, matplotlib, rasterio, geopandas, shapely, pyproj; FLO-2D Pro 26.02.25 outputs; HEC-RAS 6.6 rasters via hecras-result-rasters"
+owner: JCO
+replaces: "none (new; framework previously rebuilt per project)"
+---
+# Scripted Exhibit Sheets
+
+One script per exhibit set renders every sheet from figure IDs, a register table and shared helpers
+(`scripts/exhibit_kit.py`), so a style or value change re-renders the whole set. Standards (sheet, map checklist,
+legends, ramps, base content) come from drainage-report-exhibit-standards; this skill is the production method.
+exhibit-reviewer runs the review pass before compile.
+
+## When to use
+- Review, screening and result-map series (depth, velocity, WSE, difference, inflow and flow-rate exhibits)
+  produced from GIS layers and model rasters (D37).
+- Report exhibits only after JCO has accepted scripted figures for the job (decision log entry) and the editable
+  source is kept; otherwise build report exhibits in QGIS or CAD (D37, default, to confirm).
+- Any exhibit whose labels change with design iterations (peak Q at CPs or inflow points, storage required vs
+  provided, inverts): drive labels from the register (Steps, section B).
+- Mapping FLO-2D output (TOPO.DAT, DEPTH.OUT, MAXWSELEV.OUT, MapCrafter rasters) to depth/WSE exhibits (section C);
+  FEMA zone delineation for work maps in `addons/fema.md`.
+
+## Inputs
+- Figure list: IDs (Figure 4-1 numbering by section, D52), titles, extents, storms, conditions. Finished before the
+  first export.
+- Editability decision (scripted vs QGIS/CAD) recorded in the job decision log.
+- Layers in one CRS (Pima County default EPSG:2868, D55) with every .prj / world file checked.
+- Basemap: current aerial (NAIP or local aerial service) with source and date; hillshade where useful.
+- Model rasters from hecras-result-rasters (D43 names, dictionary) or FLO-2D outputs (flo2d-model-runs).
+- Register CSVs: inflow register (ID, x, y, Q per storm), CP table (letter, Q100), storage register (unit, volume
+  required, volume provided, footprint, inverts).
+- Psomas border dimensions and brand colors (drainage-report-exhibit-standards section 3).
+- Environment: EKOS GIS uv environment by full path (D11), e.g. `D:\EKOS\envs\gis\.venv\Scripts\python.exe`
+  (path per the EKOS environment table; confirm).
+
+## Steps
+
+### A. Sheet set
+1. **Decide the path.** Ask JCO whether others must edit the figures. If yes, stop and build in QGIS or CAD from the
+   start. If scripted, log "scripted sheets per D37" in the decision log with the series name.
+2. **Freeze the figure list** (IDs, titles, extents, storms, conditions) before any export.
+3. **Fix one template first** and do not change it mid-set: `ek.sheet("11x17", "landscape")` (8.5x11 for appendix
+   and memo inline figures, D36); title block at the bottom with no dates; legend, north arrow, graphic scale bar,
+   datum note and credit line in the right margin; 9 pt minimum text (`ek.MIN_TEXT_PT`, D34).
+4. **Fix symbology before rendering any sheet:** one depth ramp (`ek.RAMPS["local"]` default, `"deep-flow"` for
+   regional washes and corridors, D31), difference ramp (`ek.RAMPS["difference"]` or `ek.difference_ramp(<agency
+   threshold>)`, D33), result opacity `ek.RESULT_ALPHA` = 0.60 over a full-strength aerial (D40). Shared helpers for
+   watersheds (pink), flowlines (cyan dashed, arrows), sheet-flow arrows, CP labels (letter + Q100, D41).
+5. **One CRS.** Reproject every layer to the project CRS; record any CRS assumed from file names or world files on
+   the sheet (`ek.datum_note(..., crs_note=...)`).
+6. **Guard every filtered layer** with `ek.require_nonempty(layer, name)` (stops) or `strict=False` (warns; drop the
+   legend entry or state "none mapped"). Never render past an empty-layer warning without resolving it.
+7. **Draw layers, then set the scale:** `ek.set_extent_to_scale(ax, cx, cy, ek.engineering_scale(extent_ft,
+   map_in))` after all layers are drawn; assert `ek.measured_scale(ax)` equals the stated scale. Use the same scale,
+   classes and legend on existing and proposed sheets.
+8. **Base content on every map sheet:** protected areas, property boundary, parcels, roads (labelled), easements,
+   named washes, culverts and structures with numbers, proposed linework on result maps; insets or typical sections
+   where the text cites a corridor width (drainage-report-exhibit-standards 4.4).
+9. **Legend:** `ek.legend_patches(ax, entries)` with graphic samples only for symbols present on the sheet;
+   `ek.ramp_legend_entries(ramp)` for result classes; legend title names the ramp and units.
+10. **Dense maps:** split into 1 of 2 / 2 of 2 sheets with match lines and a sheet key.
+11. **One script, figure IDs as arguments:** `python make_exhibits.py F4-1 F4-2 ...` regenerates the set; never
+    hand-edit an output.
+12. **Save:** `ek.save_sheet(fig, folder, stem, meta)` writes `<stem>_v<n>.pdf`, `.png` (margin visible in both) and
+    the source/extent JSON; it never overwrites. Combined PDF with one bookmark per figure. For presentations keep
+    editable slides with native tables.
+13. **Register and file:** issued sheets to 10_Record\X_Exhibits with an ExhibitRegister row (template figure ID);
+    superseded sets to 10_Record\_Superseded. Keep the script, register CSVs and JSON with the issued set (the
+    editable source, D37) in the job, never inside a delivered model folder.
+14. **Review pass:** render all sheets to PNG in `40_QC\<Initials>_<YYYYMMDD>_exhibit_review\rev`, r2, r3 (figure ID
+    and title in each PNG name) and hand to exhibit-reviewer. Record every finding before fixing; fix once and apply
+    to every sheet sharing it; re-render the full set once.
+
+### B. Values from one register (Q labels, required vs provided)
+1. Keep each changing value set in one CSV: inflow register (inflow ID, location, Q per storm), CP table (letter,
+   Q100), storage register (unit, Volume Required, Calculated to Provide, footprint, inverts).
+2. Load with `ek.load_register(path, key)` (duplicate keys stop the run).
+3. Place labels by script with `ek.callouts(ax, pts, labels)` (leader lines, minimum spacing, staggered rows), not
+   fixed offsets; stagger offsite-watershed labels.
+4. Inflow exhibits: every model inflow drawn as a cross-section line labelled with ID and the peak Q for that storm;
+   exhibit IDs cross-referenced to the design discharge table.
+5. Storage exhibits: "Volume Required" and "Calculated to Provide" per unit from the register; re-check outlet invert
+   vs WQV each time a unit size changes.
+6. Before issue: `ek.compare_register(register, report_rows, key, fields)` against the report discharge and volume
+   tables; any mismatch stops issue.
+7. When values change, update the register and regenerate the exhibit; never edit labels by hand.
+
+### C. FLO-2D result mapping
+Model runs and acceptance: flo2d-model-runs and model-run-supervisor (D04, D09). Mapping here:
+1. Read TOPO.DAT, DEPTH.OUT and MAXWSELEV.OUT with `ek.read_flo2d_xyz(path)`; `ek.assert_cells_match(topo, depth,
+   wse)` must pass.
+2. Grid values on the model cell size with `ek.grid_cells(x, y, v, cellsize, bounds)`, using the bounds of a correctly
+   tagged reference raster when one exists.
+3. Before using any supplied raster (e.g. MapCrafter MAXIMUM_DEPTH.tif), compare arrays and CRS tags of apparent
+   duplicates: `ek.same_array_different_crs(a, b, crs_a, crs_b)` True means one tag is wrong; resolve before use.
+4. Take WSE directly from MAXWSELEV.OUT; never derive it from depth plus a different terrain.
+5. Masks: `wet, shown = ek.flo2d_wet_masks(depth, wse, display_cutoff)`; dry cells have WSE coded 0; the display cutoff
+   is the bottom of the chosen ramp (D33); keep cell edges visible (nearest-neighbor rendering at the model cell size).
+6. Residual check: `ek.wse_residuals(topo, depth, wse, wet)` on wet cells only; investigate residuals beyond
+   rounding.
+7. FEMA context layers: clip S_FLD_HAZ_AR, S_BFE, S_XS, S_LOMR to the extent (drainage-report-exhibit-standards
+   `addons/fema.md`). Context sheets stay internal until return period, condition and vertical datum are confirmed.
+8. Zone AE/AO delineation and BFE contours for CLOMR/LOMR work maps: `addons/fema.md`.
+
+## Jurisdiction add-ons
+- `addons/fema.md` (this skill): depth-to-zone delineation, AE assignment, BFE contours and zone shapefiles from
+  FLO-2D results for CLOMR/LOMR work maps. Load with
+  `get_skill("scripted-exhibit-sheets", resource="addons/fema.md")`.
+- Exhibit content add-ons (Pima RFCD, Tucson, Marana, FEMA, Placer) live in drainage-report-exhibit-standards.
+- Town of Marana: project CRS NAD83 Arizona Central (intl ft) was used on a concept report; confirm per project.
+  (TANGERINE-006)
+- Placer County / Lake Tahoe Basin: storage register with outlet invert vs WQV recheck (section B5). (HOMEWOOD-018)
+
+## Gotchas
+- Scripted matplotlib PDFs could not be edited by the user, who later asked for the figures to be recreated in QGIS
+  or CAD. (TANGERINE-006)
+- Using Python instead of QGIS layouts is a deviation that must be logged for JCO decision. (RKN-012; D37)
+- Three exhibit versions were exported within about 2.3 hr on submittal morning (v1, v2 adding Figure 12, v3 16 min
+  later); finish the figure list before export. (TANGERINE-006)
+- A DRAFT date in every title block forces replotting the whole set when the date changes. (TANGERINE-006)
+- Reviewers found report-scale figures too dense and the Preserve boundary missing; full-size sheets and the Preserve
+  polygon on every map closed three comments. (TANGERINE-006)
+- Reviewer markup: move legend, scale bar and north arrow into the margin; show the margin in the PNG as well as the
+  PDF; cut the top margin by 50%. (ELTORO-015)
+- About 45 depth exhibit files were produced (v2-v6, three opacity variants, four sheets in 11x17 and 8.5x11,
+  landscape and portrait) because template, ramp and opacity were not fixed first. (ELTORO-015)
+- Fixed-offset labels overlapped; replaced with a callouts helper and staggered offsite-watershed labels. (RKN-012)
+- A filter on BC line type returned an empty layer and BC lines silently dropped off an exhibit. (RKN-012)
+- GeoPandas warned the 0.2% subset was empty and the figure was issued anyway. (CALFIRE-017)
+- Road profile exhibit first showed the raw grade-following profile; reduce to tangent grades between PVIs and label
+  percent grade. (RKN-012)
+- Exhibit scripts were rerun about 6 times in one day; largest rework item after report formatting. (RKN-012)
+- Image date can differ from lidar date; credit imagery source on each exhibit. (SILVERBELL-017)
+- Eight review rounds were rendered in one day, r2 to r4 within 7 min; check all sheets in one pass before
+  re-rendering. (SAH-019)
+- File names were truncated in a review round; keep figure ID and title in the PNG name. (SAH-019)
+- Four versions of the existing flow-rates exhibit carried 50-70 hand-placed labels each, re-placed for each extent
+  and plan change. (ELTORO-016)
+- Stormwater exhibit and gallery sizing reissued about 7 times with sizes drifting from the vendor calculators.
+  (HOMEWOOD-018)
+- Basin values on a comparison exhibit were still pending at issue; mark pending values as pending. (NORTHLOOP-011)
+- A MapCrafter MAXIMUM_DEPTH.tif carried a California CRS tag (EPSG 3498) while its identical twin carried AZ Central
+  EPSG 2223; compare arrays and CRS before use. (TANGERINE-008)
+- WSE minus terrain minus depth showed large residuals driven by dry zero cells; compute residuals on wet cells only.
+  (TANGERINE-008)
+- Aerial EPSG came only from file names and world files; record that assumption on the sheet. (TANGERINE-008)
+- Matplotlib resets axis limits when a layer is drawn; set the engineering-scale extent after all layers and check
+  the measured scale, or the sheet scale and scale bar disagree. (SAHPARK-008, kit build test)
+
+## QC checks
+- Pull rules: `get_qc_rules('exhibits')`, `get_qc_rules('crs')`; `get_qc_rules('flo2d')` for FLO-2D maps;
+  `get_qc_rules('fema')` for work maps and SFHA content; `get_qc_rules('hydraulics-2d')` for RAS result maps.
+- This skill passes only when:
+  - Editable-or-scripted decision recorded before build (D37).
+  - All layers share one CRS; assumptions noted on the sheet.
+  - Script log shows no unresolved empty-layer warning.
+  - Measured scale = stated engineering scale on every sheet; scale bar drawn at that scale.
+  - Existing and proposed sheets share scale, classes and legend; ramp named in the legend title.
+  - Margin, legend, north arrow, scale bar, datum note and credit line visible in PDF and PNG.
+  - Every Q and volume label traces to a register row; `compare_register` against the report tables returns no
+    mismatch.
+  - File suffix incremented; superseded set kept in 10_Record; ExhibitRegister updated; source/extent JSON saved.
+  - FLO-2D: cell coordinates match across inputs; WSE from MAXWSELEV; wet-cell residuals checked; supplied raster CRS
+    verified.
+  - The full drainage-report-exhibit-standards checklist passes in the exhibit-reviewer pass.
+- Self-test of the kit: `python scripts\exhibit_kit.py --selftest <scratch folder>` (ramps, bounds, empty-layer guard,
+  FLO-2D readers, residuals, a sample 11x17 sheet).
+
+## Change log
+- 1.0.0 2026-10-22: built from clusters EXH-C01, EXH-C11, EXH-C09 (FLO-2D result mapping core; FEMA zone delineation
+  in addons/fema.md), with review-pass items from EXH-C02; decisions D31, D33, D34, D36, D37, D40, D41, D43, D52,
+  D55. Added `scripts/exhibit_kit.py` (template, ramps, map checklist helpers, empty-layer guard, register labels,
+  versioned save, FLO-2D readers, depth-to-zone). Items "default, to confirm": D37 scope (report exhibits only with
+  JCO acceptance), deep-flow ramp colors, environment path, source-case depth-to-zone table.

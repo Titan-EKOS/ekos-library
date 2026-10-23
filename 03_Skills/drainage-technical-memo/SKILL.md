@@ -1,0 +1,105 @@
+---
+name: drainage-technical-memo
+description: Write a drainage technical memo - preliminary or final TM, drainage evaluation memo from an existing 2D model, alternatives/justification memo, or crossing rise memo - with the right layout for its size (D46), a purpose that states the decision, a criteria table with authorities, dated decisions and non-empty conclusions.
+version: 1.0.0
+status: active
+function: report-assembly
+jurisdiction: all
+tools_versions: "Word memo template (_Electronic-Memo); Standard v0.3 workbook in --mode build for multi-section TMs; HEC-RAS 6.6 for 2D results; Python 3.10+ with h5py, numpy"
+owner: JCO
+replaces: "none (new)"
+---
+# Drainage Technical Memo
+
+## When to use
+- Any preliminary or final drainage TM.
+- A short drainage evaluation from an existing 2D model.
+- An alternatives or justification memo requested by an agency.
+- A crossing rise memo for an agency or railroad owner (WSEL rise at a crossing from 2D output).
+- Full reports use `drainage-report-build` with `drainage-report-standard`.
+
+## Inputs
+- Memo type and size (decides the layout, D46).
+- Governing criteria with their authority (manual, section, edition; or agency meeting date).
+- Source results: RECORD calcs (Standard CalcRegister when used), native model output, approved regional study flows.
+- For alternatives memos: meeting transcript, meeting notes, one or two prior agency memos as format examples.
+- For rise memos: existing and proposed plan HDFs on a common mesh, owner criteria.
+- Outlines: `reference/memo_outlines.md`.
+- `%DOCS_PY%` = documents venv interpreter by full path (D11; h5py and numpy for the rise script); `%SK%` = this
+  skill's `scripts\` folder.
+
+## Steps
+1. Pick the layout (D46, default, to confirm): letter memo (up to 10 pages, single topic) = memo template, figures
+   inline after first citation, no Contents or lists of figures/tables. Multi-section technical memo = numbered
+   sections, Contents and List of Figures, 11x17 figures grouped at the end of each main section. When unsure, ask
+   JCO before drafting; restructuring late costs a rebuild (RKN-014).
+2. Template: the memo template ships its own core.xml and duplicated parts; strip them when the template is used as a
+   base and set document properties to the firm (`drainage-report-standard` post-process). Multi-section TMs on the
+   Standard workbook run `assemble_report.py --mode build` (the memo shell TPL-02 is not built in v0.3).
+3. Purpose: state what the memo documents or decides (the approach and analyses supporting the design; or the decision
+   being made, including what is already designed or under construction). Not the project description.
+4. Core TM subsections: data sources; design criteria (table with the authority for each criterion); assumptions;
+   constraints; decisions (date and who made them); methods; results; Summary and Conclusions with next steps.
+   Never leave Conclusions empty.
+5. Attribute agency direction to the meeting date it was given; record agency criteria with that date (e.g. a Town
+   maximum overtopping depth).
+6. Drainage evaluation memo (existing 2D model): Purpose, Analysis Approach (software, grid, n, flow source), Results,
+   Conclusions. State that no new hydrology was done and flows come from the approved regional study; say regional
+   flows on local areas give conservative depths. Compare existing vs ultimate WSE and report increases above the
+   governing threshold inside and outside ROW and at structures; attach depth and difference figures. The threshold is
+   cited from the governing agency or stakeholder for the project, never hard-coded (D29).
+7. Qualitative concepts: add a Limitations section (not a full hydraulic design; does not pass Q100 without
+   overtopping, where true).
+8. Alternatives memo: define each alternative once with a figure and use the same definition throughout; cite
+   specific parameters from each reference (speed, buffer width, volumes), not just titles; sections purpose,
+   background, alternatives, constraints (ROW, drainage), circulation/user benefits, constructability,
+   recommendation. Check facts in machine meeting notes against the transcript; machine notes carry an accuracy
+   warning.
+9. Crossing rise memo (RPT-C15): focus on the last proposed iteration; list modeling effort, assumptions and data
+   gaps. Compute time above each rise threshold at common-wet cells from saved output:
+   `"%DOCS_PY%" "%SK%\rise_exceedance.py" --ex <ex.p##.hdf> --pr <pr.p##.hdf> --area "<2D area>" --thresholds <owner values> --csv <..>\rise_cells.csv --json <..>\rise_summary.json`
+   (CAMPBELL-024 used 0.1, 0.5 and 1.0 ft at the owner's request). Plot exceedance durations; note that maxima can
+   occur at different cells. Compute depth x velocity^2 hazard for both conditions (cell velocities from
+   `hecras-result-rasters`). Map WSEL and velocity differences; show bridge and barrel flows separately. Report native
+   cell counts as counts, never as raster areas.
+10. Discharges in the memo follow the design discharge rules (one value, one qualifier, one source per flow; captions
+    match the storm shown) - see `drainage-report-standard` step 12.
+11. Running header text and "Page x of y" are set after figures are appended; the header title equals the memo title.
+12. Completed tense; no interim wording; no tool or assistant names; references numbered 1), 2) with real sources.
+13. Self-check before JCO QC (qc-reviewer pre-review mode): criteria table with authority column present, decisions
+    dated, Conclusions filled, header and page count match the final PDF.
+
+## Jurisdiction add-ons
+- `addons/town-of-sahuarita.md` (this skill): Town criteria recorded with meeting date; WSE-increase reporting
+  threshold used in evaluation memos.
+- `addons/railroad-owner.md` (this skill): railroad owner rise evaluation.
+- Agency criteria and outline: `get_skill("drainage-report-build", resource="addons/<agency>.md")`.
+
+## Gotchas
+- Draft 3 purpose described the road project only; no criteria, assumptions or decisions anywhere (SAHPARK-001).
+- Summary and Conclusions heading empty in the draft sent for QC (SAHPARK-001).
+- Memo title "Drainage Evaluation" vs running header "Drainage Statement" and "Page x of 3" in a 20-page PDF
+  (ELTORO-018).
+- Regional flows applied to local areas give conservative depths; say so (ELTORO-018).
+- Five drafts over about three months; reviewers repeatedly flagged unclear alternative definitions, a purpose not
+  stating the decision, references without parameters, missing traffic data (ELTORO-021).
+- Machine meeting notes carry an accuracy warning (ELTORO-021).
+- Native cell counts are not raster areas (CAMPBELL-024).
+- Memos built in a generic layout and then restructured to the standard cost about 1.25 h of one-time patches
+  (RKN-014).
+- The memo template ships its own core.xml and duplicated parts (CALFIRE-013).
+
+## QC checks
+- Pull rules: `get_qc_rules('report-text')`, `get_qc_rules('tables')`, `get_qc_rules('exhibits')`; rise memos add
+  `get_qc_rules('hydraulics-2d')`; plus the agency tag.
+- Criteria table present with authority column; decisions dated (SAHPARK-001).
+- Header text and page count match the final PDF (ELTORO-018).
+- Purpose states the decision or what is documented; Conclusions not empty (SAHPARK-001).
+- Each alternative defined once and named the same throughout; references cite parameters (ELTORO-021).
+- Rise threshold cited from the governing agency or owner (D29).
+
+## Change log
+- 1.0.0 2026-10-22: built from clusters RPT-C08 and RPT-C15 (crossing rise memo as a memo type), plus RKN-014 and
+  CALFIRE-013 memo gotchas; decisions D46 (layout by size; default, to confirm: 10-page / single-topic threshold),
+  D29 (rise thresholds cited per project), D28 (n basis in 2D evaluation memos). Added scripts/rise_exceedance.py
+  (tested on a synthetic HDF; confirm dataset paths on a real plan HDF) and reference/memo_outlines.md.

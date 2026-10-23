@@ -1,0 +1,127 @@
+---
+name: impact-comparison
+description: Compare existing and proposed (or alternative) hydraulic results on matched FLO-2D or HEC-RAS 2D models - common grid / mesh, shared-input hashes, control cases for grading tests, cell-by-cell dWSE, depth and velocity differences, boundary and structure tables, pad clearance screening - before any report states no adverse impact, maintained flow distribution, pad clearance or a BFE rise; FEMA 44 CFR 65.12 rules in the FEMA add-on.
+version: 1.0.0
+status: active
+function: hydraulics-model-run
+jurisdiction: all (add-on - FEMA; reviewer expectations noted for Town of Marana / Pima County RFCD)
+tools_versions: "FLO-2D Pro Build 26.02.25; HEC-RAS 6.6 (RAS Mapper calculated layers); Python 3.12 gis env (numpy, rasterio, geopandas)"
+owner: JCO
+replaces: "none (new)"
+---
+# Impact Comparison (existing vs proposed)
+
+## When to use
+- Any report claim of no adverse impact, maintained flow distribution, pad clearance or BFE rise.
+- Grading or berm sensitivity tests; mitigation alternative series.
+- CLOMR existing / proposed comparison (load `addons/fema.md`).
+
+Not here: building or running the models (flo2d-model-runs, hecras-2d-models); raster export
+(hecras-result-rasters); difference-map styling (drainage-report-exhibit-standards, decision D33).
+
+## Inputs
+- Completed, accepted runs of every compared condition (run supervisor status: complete per D04 / D05 and
+  accepted per D09). Partial or screening runs give screening comparisons only.
+- Approved grading surfaces (limits), property-boundary and ROW linework (request early), structure list.
+- The governing rise / change threshold with its source (agency manual section, stakeholder agreement or
+  FEMA rule) - decision D29: no hard-coded 0.1 ft.
+
+Scripts (gis env by full path; `<PY>` = `D:\EKOS\envs\gis\.venv\Scripts\python.exe` or the path in the
+library environment table):
+- `scripts/shared_input_hashes.py` - shared-input hash equality across condition folders.
+- `scripts/flo2d_cell_compare.py` - FLO-2D cell-matched dWSE / depth comparison, FEMA counts, register merge.
+
+## Steps
+
+### 1. Build every condition from one model set
+1. Same 2D perimeter / grid (FLO-2D CADPTS identical; RAS same mesh), cell size, breaklines, 1D channel network,
+   FPXSEC, INFLOW, OUTFLOW, TOLER, RAIN, controls and engine build. Only terrain inside approved grading
+   surfaces and roughness / development may differ.
+2. Prove it: `<PY> shared_input_hashes.py --folders <EX> <PR> [<ALT> ...]` (FLO-2D default list; pass the RAS
+   file list for HEC-RAS). Put the hash check in the package QC.
+3. Base terrain: the effective grid elevations in every model. Check the effective grid against new survey
+   (mean, std dev) before deciding to resample.
+4. Proposed TOPO / terrain: scan for placeholder flat patches and artificial steps at regrade boundaries before
+   running (flo2d-model-runs Step 7.4).
+5. Run the existing-condition model at the same vintage (same build, same inputs) and include its outputs.
+
+### 2. Control case for grading tests
+1. Build a control plan with the same modifier geometry raised out of the ground so processing matches.
+2. Confirm control equals base (e.g. within 0.0003 ft).
+3. Direct grading effect = test - control; impact = test - existing.
+4. When meshes differ, compare by physical location (containing cell), not cell index, and say the result
+   includes mesh and grading changes.
+
+### 3. Cell-by-cell differences
+1. FLO-2D: `<PY> flo2d_cell_compare.py --base EX=<ex> --scenario PR=<pr> [--scenario ALT1=<alt>] --threshold <ft>
+   --threshold-source "<agency, document, section>" --outdir <40_QC or 20_Working folder>`. It stops if grids
+   differ, compares cells wet above 0.1 ft in both, reports new wet / new dry cells separately, tags cells with
+   ground change, and merges the summary into `impact_register.json`.
+2. List every scenario folder in one call (or rely on the register merge) so the results register stays
+   complete.
+3. HEC-RAS: RAS Mapper calculated difference layers (proposed - existing WSE, depth, velocity) on the same
+   terrain, or hecras-result-rasters outputs on one grid with NoData (-9999) handled; join by verified cell ID
+   and XY.
+4. Compare depth, WSE, velocity (and shear where asked) for cells wet above 0.1 ft.
+5. Extreme dWSE values at fill slopes and excavated basins come from ground change, not flood change; review
+   before quoting min / max.
+
+### 4. Tables
+1. Existing vs proposed peak Q, volume, timing, WSE, depth and velocity at upstream inflows, property
+   boundaries, road crossings and downstream constraints.
+2. Outlet hydrograph split by domain exit: synchronized 0.5-hr series from the final OUTNQ.OUT (FLO-2D) or
+   boundary flow series (RAS). Wait for final files; a partial run window is not usable.
+3. Report changes beyond the ROW / parcel and at structures against the cited threshold. Split changes near
+   boundaries where CAD and GIS lines disagree; classify edge cells with the property-boundary linework.
+
+### 5. Pad clearance (screening)
+1. Pad clearance = max wet-cell WSE within 100 ft of the pad, with 30 / 50 / 100 / 200 ft reference values.
+2. Label it screening, not a certified floor elevation.
+
+### 6. Sensitivity series
+1. Agree a stop limit with JCO before the series (e.g. opening lowering capped at 4.00 ft); stop when no case
+   meets the targets and report that.
+2. Never change approved physical grading to fix numerical behavior.
+3. Report flow redistribution (e.g. rail surface flow vs existing) alongside WSE so the cause is visible.
+
+### 7. Wording gate
+1. State "no adverse impact" only when Steps 1-4 are complete for every condition and storm the text covers.
+2. Otherwise label the comparison distributional / qualitative and list what is missing.
+3. Quote report values from the register and CSV files written in Step 3, not from memory or screenshots.
+
+## Jurisdiction add-ons
+- `addons/fema.md` (load with `get_skill("impact-comparison", resource="addons/fema.md")`): 44 CFR 65.12
+  rise analysis, SFHA filter, new / removed SFHA cells, cells over 1.00 ft, notices and PE certification.
+- Town of Marana / Pima County RFCD: reviewers require common-mesh existing / proposed runs before any
+  no-adverse-impact text (TANGERINE-003); thresholds from the governing manual (decision D29). Load
+  drainage-report-build `addons/town-of-marana.md` or `addons/pima-county-rfcd.md` for the criteria.
+
+## Gotchas
+- Existing and Interim models carried only an 18-cell eastern trapezoid channel while Ultimate carried a 567-cell western channel; offsite dWSE over 1 ft (157 cells) was an artifact of the mismatch (STARVALLEY-007)
+- Interim and Ultimate used re-sampled terrain differing from the effective grid by up to 11 ft across a 3,060 ac domain; the effective grid matched the new survey to 0.15 ft mean (STARVALLEY-007)
+- A concept report compared meshes of different extent and resolution and still drew strong conclusions; three reviewer comments (T1-6, T1-11, R-1) asked for a common-mesh rerun (TANGERINE-003)
+- Running the comparison with only two folders overwrote the three-case results register (NORTHLOOP-009)
+- FLO-2D lowers outlet-cell elevations internally, so WSE minus ground there is not max depth; interior cells reconcile within 0.0002 ft (NORTHLOOP-009)
+- A partial outlet review from an incomplete run window is not usable; wait for the final file (NORTHLOOP-009)
+- The 10 ft grid run produced a 934 MB post-processing HDF; keep fine-grid runs out of synced folders (ELTORO-017)
+- A north-bank 1 ft cut moved about 348 cfs north but worsened the local rail rise (0.44 to 0.94 ft) (CAMPBELL-008)
+- Opening lowering through 4.00 ft left about 1.5 ft rise; no target met (CAMPBELL-008)
+- Proposed rail surface flow stayed about 700-900 cfs above existing in all tests; the issue was flow redistribution at the crossing (CAMPBELL-008)
+- Extreme dWSE values at fill slopes and excavated basins come from ground change, not flood change (STARVALLEY-008)
+- A 34.6 ac over-1-ft cluster came from a placeholder flat surface in the proposed TOPO, not real grading (STARVALLEY-008, STARVALLEY-015)
+- Property-boundary linework is needed to classify edge cells; request it early (STARVALLEY-008)
+- Small 1D proposed-minus-existing deltas with existing stages several ft above the 2D are not lower impacts (CAMPBELL-007)
+
+## QC checks
+- Pull: `get_qc_rules('hydraulics-2d')`, `get_qc_rules('flo2d')` or the RAS equivalent, `get_qc_rules('report-text')`;
+  FEMA: `get_qc_rules('fema')`.
+- shared_input_hashes.json pass; same engine build for all conditions.
+- Control equals base within the stated tolerance for every grading test.
+- impact_register.json holds every scenario the text discusses; threshold and its source recorded.
+- New wet / new dry cells reported separately; ground-change cells reviewed before quoting extremes.
+- No-adverse-impact wording only with matched-model difference maps and tables; pad clearance labelled screening.
+
+## Change log
+- 1.0.0 2026-10-22: built from cluster HYD-C08 (plus CAMPBELL-007 item from HYD-C17 and STARVALLEY-015 from
+  QC-C22); decisions D29, D33, D38. Default wet-cell cutoff 0.1 ft from the cluster; thresholds always cited
+  per project.

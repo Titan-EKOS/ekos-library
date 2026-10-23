@@ -106,19 +106,25 @@ class Library:
         return [self._summary(m) for _, m, _ in self._masters(SKILLS, "SKILL.md")
                 if m.get("status") != "retired" and self._matches(m, filter)]
 
-    def get_skill(self, name: str) -> dict:
-        return self._get(SKILLS, "SKILL.md", name)
+    def get_skill(self, name: str, resource: str | None = None) -> dict:
+        return self._get(SKILLS, "SKILL.md", name, resource)
 
     def list_agents(self) -> list[dict]:
         return [self._summary(m) for _, m, _ in self._masters(AGENTS, "AGENT.md")
                 if m.get("status") != "retired"]
 
-    def get_agent(self, name: str) -> dict:
-        return self._get(AGENTS, "AGENT.md", name)
+    def get_agent(self, name: str, resource: str | None = None) -> dict:
+        return self._get(AGENTS, "AGENT.md", name, resource)
 
-    def _get(self, folder: str, filename: str, name: str) -> dict:
+    def _get(self, folder: str, filename: str, name: str, resource: str | None = None) -> dict:
         for d, meta, _ in self._masters(folder, filename):
             if meta.get("name") == name or d.name == name:
+                if resource:
+                    rp = (d / resource).resolve()
+                    if d.resolve() not in rp.parents or not rp.is_file():
+                        raise LibraryError(f"No resource '{resource}' in {name}")
+                    return {"name": meta.get("name", d.name), "resource": resource,
+                            "content": rp.read_text(encoding="utf-8", errors="replace")}
                 files = sorted(
                     str(p.relative_to(d)).replace("\\", "/")
                     for p in d.rglob("*") if p.is_file() and p.name != filename

@@ -119,6 +119,11 @@ def test_list_and_get_skill(lib_root):
     assert lib.list_skills("jurisdiction=placer") == []
     s = lib.get_skill("pchydro-test")
     assert "5-min minimum" in s["content"]
+    (lib_root / "03_Skills/pchydro-test/addons").mkdir()
+    (lib_root / "03_Skills/pchydro-test/addons/pima.md").write_text("Pima add-on", encoding="utf-8")
+    assert lib.get_skill("pchydro-test", "addons/pima.md")["content"] == "Pima add-on"
+    with pytest.raises(LibraryError):
+        lib.get_skill("pchydro-test", "../../library.yaml")
     with pytest.raises(LibraryError):
         lib.get_skill("nope")
 

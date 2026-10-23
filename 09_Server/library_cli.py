@@ -32,7 +32,7 @@ def main(argv=None) -> int:
     ap.add_argument("--root", default=None)
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("list-skills"); p.add_argument("--filter", default="")
-    p = sub.add_parser("get-skill"); p.add_argument("name")
+    p = sub.add_parser("get-skill"); p.add_argument("name"); p.add_argument("--resource", default="")
     sub.add_parser("list-agents")
     p = sub.add_parser("get-agent"); p.add_argument("name")
     p = sub.add_parser("qc-rules"); p.add_argument("--scope", default="all")
@@ -48,7 +48,7 @@ def main(argv=None) -> int:
         if a.cmd == "list-skills":
             out = lib.list_skills(a.filter or None)
         elif a.cmd == "get-skill":
-            out = lib.get_skill(a.name)["content"]
+            out = lib.get_skill(a.name, a.resource or None)["content"]
         elif a.cmd == "list-agents":
             out = lib.list_agents()
         elif a.cmd == "get-agent":
