@@ -1,7 +1,7 @@
 """HEC-RAS 2D plan result acceptance check (decisions D05, D09; HYD-C09, HYD-C11). Read-only.
 
-Environment: gis env (h5py, numpy).
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe ras_result_check.py <project.p##.hdf>
+Environment: gis env, %GIS_PY% (h5py, numpy).
+  "%GIS_PY%" ras_result_check.py <project.p##.hdf>
       [--final | --screening] [--vmax-fps 30] [--out result_check.json]
 
 Refuses a *.tmp.hdf or a plan whose .tmp.hdf still exists beside it (RAS may be writing).

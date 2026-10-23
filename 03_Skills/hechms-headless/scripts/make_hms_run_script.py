@@ -13,7 +13,7 @@ Console text is NOT the success test: every -s run prints a harmless JAXB
 "Premature end of file" exception. Run check_hms_results.py afterwards.
 
 Usage (EKOS, venv python by full path):
-  D:\\EKOS\\venvs\\hydro\\Scripts\\python.exe make_hms_run_script.py ^
+  "%HYDRO_PY%" make_hms_run_script.py ^
       --project-file "D:\\Jobs\\<job>\\20_Working\\HMS\\Model_413\\Model.hms" ^
       --runs "EX 100yr 3hr" "EX 100yr 24hr" ^
       --out-dir "D:\\Jobs\\<job>\\20_Working\\HMS\\_run" ^

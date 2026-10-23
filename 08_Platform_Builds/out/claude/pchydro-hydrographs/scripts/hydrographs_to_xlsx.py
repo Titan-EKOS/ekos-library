@@ -33,8 +33,8 @@ Optional side files:
 No volume-equality gate is applied: the county manual treats the integrated
 hydrograph as an approximation of the equation volume (EKOS-LOCAL-007).
 
-Usage (EKOS, GIS venv python by full path):
-  D:\\EKOS\\venvs\\gis\\Scripts\\python.exe hydrographs_to_xlsx.py --out CP_hydrographs.xlsx ^
+Usage (EKOS, documents env, %DOCS_PY%):
+  "%DOCS_PY%" hydrographs_to_xlsx.py --out CP_hydrographs.xlsx ^
       --adjusted-csv CP_routing_series.csv --native-csv CP_native_series.csv CP-101.csv CP-102.csv
 Container:
   python3 hydrographs_to_xlsx.py --out combined.xlsx --peaks peaks.csv series1.csv

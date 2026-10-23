@@ -1,6 +1,6 @@
 """Hash-check the inputs that must be identical across compared conditions (HYD-C08 step 1). Pure Python.
 
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe shared_input_hashes.py --folders <EX> <PR> [<ALT> ...]
+  "%GIS_PY%" shared_input_hashes.py --folders <EX> <PR> [<ALT> ...]
       [--files CADPTS.DAT CONT.DAT TOLER.DAT INFLOW.DAT OUTFLOW.DAT RAIN.DAT FPXSEC.DAT CHAN.DAT XSEC.DAT FLOPRO.exe]
       [--out shared_input_hashes.json]
 

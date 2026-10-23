@@ -1,6 +1,6 @@
 """FLO-2D natural-section 1D channel validity checks (HYD-C05). Pure Python.
 
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe flo2d_channel_check.py <model_folder> [--min-relief 0.5]
+  "%HYDRAULICS_PY%" flo2d_channel_check.py <model_folder> [--min-relief 0.5]
 
 Reads XSEC.DAT, CHAN.DAT and CHANBANK.DAT (case-insensitive names) and writes
 <model_folder>/channel_check.json. Exit 1 on any FAIL.

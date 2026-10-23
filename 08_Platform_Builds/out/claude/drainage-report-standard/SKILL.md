@@ -25,7 +25,7 @@ Do not edit the package code from this skill.
 - Package root (EKOS): `D:\LocalAI_Test\Drainage_Report_Standard_v0.3_TRANSFER\Drainage_Report_Standard_v0.3_TRANSFER`.
   `<STANDARD>` = `<root>\standard\30_Standard_v0.3`. Map of files: `reference/package_map.md`.
 - `%DOCS_PY%` = full path of the EKOS documents venv interpreter (openpyxl, python-docx, lxml, pypdf, pywin32)
-  (D11). Example: `set DOCS_PY=D:\EKOS\venvs\docs\Scripts\python.exe` (path to confirm in the library config).
+  (D11). Set on EKOS as a user variable: `DOCS_PY=C:\EKOS\documents\.venv\Scripts\python.exe` (08_Platform_Builds/ENVIRONMENTS.md).
   Never bare `python` or a global pip in a long job.
 - `%SK%` = this skill's `scripts\` folder in the library.
 - Job report folder `<Job>\ENGR\DOCS\Drainage Report\<ReportID>_<ShortName>\` and its workbook

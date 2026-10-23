@@ -30,7 +30,7 @@ results follows drainage-report-build (values trace to native output).
   upper 90% at the system centroid in Pima County); storm durations; areal reduction factors where required.
 - External inflow hydrographs (DSS, INST-VAL, CFS, 1Minute) when routing gage flow.
 - For reproduction work: the archived project, its results and the report tables to compare against.
-- Governing version: HEC-HMS 4.13 (D01). Interpreter for helper scripts: the EKOS hydro venv by full path (D11).
+- Governing version: HEC-HMS 4.13 (D01). Interpreter for helper scripts: `%HYDRO_PY%` = `C:\EKOS\hydrology\.venv\Scripts\python.exe` (D11).
 
 ## Steps
 
@@ -70,7 +70,7 @@ results follows drainage-report-build (values trace to native output).
 ### C. Compute headless
 11. Write the Jython script and launcher:
     ```
-    D:\EKOS\venvs\hydro\Scripts\python.exe scripts\make_hms_run_script.py ^
+    "%HYDRO_PY%" scripts\make_hms_run_script.py ^
         --project-file "<job>\20_Working\HMS\<model>_413\<model>.hms" ^
         --runs-file runs.txt --out-dir "<job>\20_Working\HMS\_run" ^
         --hms-dir "C:\Program Files\HEC\HEC-HMS\4.13"
@@ -85,7 +85,7 @@ results follows drainage-report-build (values trace to native output).
 ### D. Judge the run and read results
 15. Judge success by files, never by console text:
     ```
-    D:\EKOS\venvs\hydro\Scripts\python.exe scripts\check_hms_results.py --project-dir <model dir> ^
+    "%HYDRO_PY%" scripts\check_hms_results.py --project-dir <model dir> ^
         --runs-file runs.txt --status <out>\compute_status.txt --input-dss <inflows.dss> ^
         --min-elements <n> --out <out>\check
     ```

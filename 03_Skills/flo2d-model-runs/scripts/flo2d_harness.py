@@ -1,8 +1,8 @@
 """FLO-2D Pro run harness: preflight, launch, status, finish.
 
-Environment: gis env (numpy not needed; psutil required for launch/status/finish).
+Environment: hydraulics env, %HYDRAULICS_PY% (numpy not needed; psutil required for launch/status/finish).
 Run with the env interpreter by full path, e.g.
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe flo2d_harness.py preflight D:\\Jobs\\1234\\FLO\\EX_100yr_24hr
+  "%HYDRAULICS_PY%" flo2d_harness.py preflight D:\\Jobs\\1234\\FLO\\EX_100yr_24hr
 
 Subcommands
   preflight <folder> [--source SRC] [--compare F2 ...] [--fix-crlf] [--simul HOURS]

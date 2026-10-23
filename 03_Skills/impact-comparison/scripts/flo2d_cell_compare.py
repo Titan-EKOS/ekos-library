@@ -1,6 +1,6 @@
 """Cell-by-cell existing vs proposed comparison for matched FLO-2D models (HYD-C08). Environment: gis env (numpy).
 
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe flo2d_cell_compare.py --base EX=<ex_folder>
+  "%GIS_PY%" flo2d_cell_compare.py --base EX=<ex_folder>
       --scenario PR=<pr_folder> [--scenario ALT1=<alt_folder> ...] --threshold 0.10 --threshold-source "<agency, doc, section>"
       [--wet 0.1] [--fema] [--list-above 1.00] [--outdir <40_QC or 20_Working folder>]
 

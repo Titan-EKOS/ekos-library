@@ -37,13 +37,13 @@ Tool-version table (copy into the model basis; decision D03):
 | Vendor revision notes | build release notes saved to 01_Reference |
 | Agency acceptance | written acceptance of the working build, logged per project; until received, an open item |
 
-Scripts (gis env interpreter by full path, decision D11; no .ps1, decision D12):
+Scripts (hydraulics env interpreter by full path, decision D11; no .ps1, decision D12):
 - `scripts/flo2d_harness.py` - preflight / launch / status / finish.
 - `scripts/flo2d_dialog_watch.py` + `reference/known_benign_warnings.json` - dialog watcher (D07).
 - `scripts/flo2d_channel_check.py` - XSEC / CHAN / CHANBANK validity checks.
 
-Example interpreter path used below: `D:\EKOS\envs\gis\.venv\Scripts\python.exe` (use the path in the
-library environment table if it differs). Shown as `<PY>`.
+Interpreter used below: `"%HYDRAULICS_PY%"` = `C:\EKOS\hydraulics\.venv\Scripts\python.exe` (per
+08_Platform_Builds/ENVIRONMENTS.md if it differs). Shown as `<PY>`.
 
 ## Steps
 

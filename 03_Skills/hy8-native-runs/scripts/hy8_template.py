@@ -15,7 +15,7 @@ HY-8 itself (the seed / template). This script never invents a key.
   diff   <a.hy8> <b.hy8>
          Line-by-line key/value differences (use to compare INPUT vs NATIVE after HY-8 saves it).
 
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe hy8_template.py check seed.hy8 INPUT_<crossing>.hy8
+  "%HYDRAULICS_PY%" hy8_template.py check seed.hy8 INPUT_<crossing>.hy8
 Exit 1 on any error.
 """
 import argparse

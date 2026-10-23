@@ -1,6 +1,6 @@
 """HEC-RAS plan / geometry / flow register and hygiene check (HYD-C13, DSO-C16). Pure Python, read-only.
 
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe ras_plan_register.py <project.prj> [--out plan_register.csv]
+  "%HYDRAULICS_PY%" ras_plan_register.py <project.prj> [--out plan_register.csv]
 
 Reads the .prj and every .p## as text (never opens RAS, so nothing is rewritten). Writes the register CSV
 beside the project (or --out) and prints findings as JSON. Exit 1 when any FLAG is raised.

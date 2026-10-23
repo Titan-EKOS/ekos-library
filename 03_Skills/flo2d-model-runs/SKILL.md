@@ -5,7 +5,7 @@ version: 1.0.0
 status: active
 function: hydraulics-model-run
 jurisdiction: all (add-ons - Town of Marana, FEMA, Pima County RFCD, Town of Sahuarita)
-tools_versions: "FLO-2D Pro Build 26.02.25 (working build); agency-named builds recorded per project; HY-8 8.00 for rating tables; Python 3.12 gis env (psutil, pywinauto)"
+tools_versions: "FLO-2D Pro Build 26.02.25 (working build); agency-named builds recorded per project; HY-8 8.00 for rating tables; Python 3.12 hydraulics env (psutil, pywinauto)"
 owner: JCO
 replaces: "none (new); absorbs proposed skills flo2d-run-harness, flo2d-engine-build-and-legacy-conversion, flo2d-channel-build, flo2d-nested-grids, flo2d-alternative-screening"
 ---
@@ -42,13 +42,13 @@ Tool-version table (copy into the model basis; decision D03):
 | Vendor revision notes | build release notes saved to 01_Reference |
 | Agency acceptance | written acceptance of the working build, logged per project; until received, an open item |
 
-Scripts (gis env interpreter by full path, decision D11; no .ps1, decision D12):
+Scripts (hydraulics env interpreter by full path, decision D11; no .ps1, decision D12):
 - `scripts/flo2d_harness.py` - preflight / launch / status / finish.
 - `scripts/flo2d_dialog_watch.py` + `reference/known_benign_warnings.json` - dialog watcher (D07).
 - `scripts/flo2d_channel_check.py` - XSEC / CHAN / CHANBANK validity checks.
 
-Example interpreter path used below: `D:\EKOS\envs\gis\.venv\Scripts\python.exe` (use the path in the
-library environment table if it differs). Shown as `<PY>`.
+Interpreter used below: `"%HYDRAULICS_PY%"` = `C:\EKOS\hydraulics\.venv\Scripts\python.exe` (per
+08_Platform_Builds/ENVIRONMENTS.md if it differs). Shown as `<PY>`.
 
 ## Steps
 

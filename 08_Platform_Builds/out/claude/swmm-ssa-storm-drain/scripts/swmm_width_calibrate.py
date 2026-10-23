@@ -5,7 +5,7 @@ For each storm case, bisects the width of one subcatchment in log space on a run
 modeled peak runoff matches the target, then reports the geometric mean of the storm widths and the fit of
 that single width against every target (pass within --tol, default 10 pct).
 
-  D:\\EKOS\\envs\\hydro\\.venv\\Scripts\\python.exe swmm_width_calibrate.py --sub S1
+  "%HYDRO_PY%" swmm_width_calibrate.py --sub S1
       --case runoff_10yr.inp 0.42 --case runoff_25yr.inp 0.61 --case runoff_100yr.inp 0.90
       [--lo 1 --hi 100000 --iters 26 --tol 0.10 --out width_calibration.json]
 

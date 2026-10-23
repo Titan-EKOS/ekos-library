@@ -31,8 +31,8 @@ exhibit-reviewer runs the review pass before compile.
 - Register CSVs: inflow register (ID, x, y, Q per storm), CP table (letter, Q100), storage register (unit, volume
   required, volume provided, footprint, inverts).
 - Psomas border dimensions and brand colors (drainage-report-exhibit-standards section 3).
-- Environment: EKOS GIS uv environment by full path (D11), e.g. `D:\EKOS\envs\gis\.venv\Scripts\python.exe`
-  (path per the EKOS environment table; confirm).
+- Environment: EKOS GIS uv environment by full path (D11), `%GIS_PY%` = `C:\EKOS\gis\.venv\Scripts\python.exe`
+  (path per 08_Platform_Builds/ENVIRONMENTS.md).
 
 ## Steps
 

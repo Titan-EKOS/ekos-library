@@ -8,8 +8,8 @@ Proven on three projects: 67 subbasins in about 25 min once working (SAH-007); m
 ## Environment (EKOS)
 - Python venv with `playwright` installed and the Edge channel available
   (`<venv>\Scripts\python.exe -m playwright install msedge` once). Call the venv python by full
-  path (D11), e.g. `D:\EKOS\venvs\gis\Scripts\python.exe run_pchydro_batch.py ...` (confirm the venv
-  path in the EKOS environment table; no .ps1 launchers, D12).
+  path (D11), e.g. `"%ACQ_PY%\" run_pchydro_batch.py ...` (acquisition env has playwright; confirm the venv
+  path in the 08_Platform_Builds/ENVIRONMENTS.md; no .ps1 launchers, D12).
 - Browser: Microsoft Edge channel, headless or an isolated (separate profile) window.
 - Inputs: one `.pk6` (JSON) per CP, built from GIS (Phase 1b) or saved from earlier runs, plus the
   saved NOAA Atlas 14 upper 90% arrays per CP for the rainfall comparison.

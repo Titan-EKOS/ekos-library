@@ -525,8 +525,8 @@ exhibit-reviewer runs the review pass before compile.
 - Register CSVs: inflow register (ID, x, y, Q per storm), CP table (letter, Q100), storage register (unit, volume
   required, volume provided, footprint, inverts).
 - Psomas border dimensions and brand colors (drainage-report-exhibit-standards section 3).
-- Environment: EKOS GIS uv environment by full path (D11), e.g. `D:\EKOS\envs\gis\.venv\Scripts\python.exe`
-  (path per the EKOS environment table; confirm).
+- Environment: EKOS GIS uv environment by full path (D11), `%GIS_PY%` = `C:\EKOS\gis\.venv\Scripts\python.exe`
+  (path per 08_Platform_Builds/ENVIRONMENTS.md).
 
 ## Steps
 
@@ -696,7 +696,7 @@ drainage-report-exhibit-standards (Result maps); sheets are built per scripted-e
   zone mismatch. Pima County default is EPSG:2868 (D55); record the realization in the data log.
 - Optional: RAS Mapper export of the modified terrain (`--terrain`) when the plan uses terrain modifications.
 - Environment: the EKOS GIS uv environment, called by full path (D11), e.g.
-  `D:\EKOS\envs\gis\.venv\Scripts\python.exe` (path per the EKOS environment table; confirm).
+  `%GIS_PY%` = `C:\EKOS\gis\.venv\Scripts\python.exe` (08_Platform_Builds/ENVIRONMENTS.md).
 
 ## Steps
 1. **Discover plans.** In the project folder list `*.p[0-9][0-9].hdf`. If none, ask for the HDF path. Read each
@@ -717,7 +717,7 @@ drainage-report-exhibit-standards (Result maps); sheets are built per scripted-e
      BC present, boundary vs structure flow split, event-to-event variation) through model-run-supervisor.
 4. **Run the engine** (D43 names, default):
    ```
-   D:\EKOS\envs\gis\.venv\Scripts\python.exe scripts\hecras_result_rasters.py --hdf <PLAN>.p14.hdf ^
+   "%GIS_PY%" scripts\hecras_result_rasters.py --hdf <PLAN>.p14.hdf ^
      --scenario EX --event 100yr --cellsize 10 --clip <CLIP>.shp --outdir <OUT> --terrain-out
    ```
    - Legacy plan-number names: `--naming plan --tag p14` gives `p14_MaxDepth_ft_10ft.tif` (v1 behavior).
@@ -761,6 +761,6 @@ drainage-report-exhibit-standards (Result maps); sheets are built per scripted-e
 11. **Deliver.** Copy GeoTIFFs and `raster_dictionary.csv` to the job folder (10_Record\E_... per the Standard
     folder tree). With a sampled point table, deliver a README and a field dictionary CSV (field, plan, scenario,
     variable, units, sign, source raster). Deliver the terrain raster per scenario so the receiver can recompute
-    depth. State in the d
+    depth. State in the deliverable that velocity is a m
 
 [Truncated at 60000 chars. Fetch full skills with library_cli.py get-skill <name>.]

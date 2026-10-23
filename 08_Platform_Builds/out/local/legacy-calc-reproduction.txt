@@ -159,8 +159,8 @@ CulvertMaster and FlowMaster are legacy and used only to read archived files.
 - Seed / template .hy8 saved by HY-8 itself for each culvert type and material in use (library resource or
   a project seed; never a file written from scratch).
 
-Scripts (gis env by full path; `<PY>` = `D:\EKOS\envs\gis\.venv\Scripts\python.exe` or the path in the
-library environment table):
+Scripts (hydraulics env by full path; `<PY>` = `"%HYDRAULICS_PY%"` = `C:\EKOS\hydraulics\.venv\Scripts\python.exe`, per
+08_Platform_Builds/ENVIRONMENTS.md):
 - `scripts/hy8_template.py` - `fill` (values into a template by exact key), `check` (CRLF, ENDPROJECTFILE,
   keys, inch/ft warning), `diff` (INPUT vs NATIVE).
 - `scripts/hds5_check.py` - independent HDS-5 inlet / outlet control check (internal QC only).
@@ -313,8 +313,8 @@ Role by jurisdiction (decision D26):
   survey or plans, storage / gallery / trench geometry.
 - Receiving structure rim, invert and HGL from the agency or as-builts.
 
-Scripts (hydro env interpreter by full path, D11; `<PY>` = `D:\EKOS\envs\hydro\.venv\Scripts\python.exe` or
-the path in the library environment table):
+Scripts (hydro env interpreter by full path, D11; `<PY>` = `"%HYDRO_PY%"` = `C:\EKOS\hydrology\.venv\Scripts\python.exe`, per
+the path in the 08_Platform_Builds/ENVIRONMENTS.md):
 - `scripts/swmm_width_calibrate.py` - log-space bisection of subcatchment width to target peaks; geometric mean;
   fit report.
 
@@ -425,7 +425,7 @@ Part A (reissue) is the most frequent use. Parts B-D are run as needed. Every pa
 ### Step 0 - Source files are read-only (all parts)
 1. Copy every source DWG/DXF/LandXML to a scratch folder under `20_Working\...` and run all automated reads there. (NORTHLOOP-018)
 2. Write a SHA-256 manifest of the source folder before the run and compare after; stop and report if any source file changed:
-   `D:\EKOS\envs\<env>\.venv\Scripts\python.exe <skill>\scripts\hash_manifest.py make <source_folder> <scratch>\before.json`
+   `"%DOCS_PY%" <skill>\scripts\hash_manifest.py make <source_folder> <scratch>\before.json`
    then `... hash_manifest.py check <source_folder> <scratch>\before.json` (exit code 1 = a source file changed or vanished).
 3. Never open a received DWG in place with accoreconsole or a script that saves; console runs can refresh the DWG and its .bak. (NORTHLOOP-018)
 
@@ -518,7 +518,7 @@ Do not edit the package code from this skill.
 - Package root (EKOS): `D:\LocalAI_Test\Drainage_Report_Standard_v0.3_TRANSFER\Drainage_Report_Standard_v0.3_TRANSFER`.
   `<STANDARD>` = `<root>\standard\30_Standard_v0.3`. Map of files: `reference/package_map.md`.
 - `%DOCS_PY%` = full path of the EKOS documents venv interpreter (openpyxl, python-docx, lxml, pypdf, pywin32)
-  (D11). Example: `set DOCS_PY=D:\EKOS\venvs\docs\Scripts\python.exe` (path to confirm in the library config).
+  (D11). Set on EKOS as a user variable: `DOCS_PY=C:\EKOS\documents\.venv\Scripts\python.exe` (08_Platform_Builds/ENVIRONMENTS.md).
   Never bare `python` or a global pip in a long job.
 - `%SK%` = this skill's `scripts\` folder in the library.
 - Job report folder `<Job>\ENGR\DOCS\Drainage Report\<ReportID>_<ShortName>\` and its workbook
@@ -746,6 +746,6 @@ Do not edit the package code from this skill.
 - The memo template ships its own core.xml and duplicated parts (CALFIRE-013).
 - TOC level-2 tab leader missing in the template on short entries (CALFIRE-013).
 - Cover office address and project number were placeholders (CALFIRE-013).
-- Generated DOCX was 49-56 MB with 12 full-resolution images; som
+- Generated DOCX was 49
 
 [Truncated at 60000 chars. Fetch full skills with library_cli.py get-skill <name>.]

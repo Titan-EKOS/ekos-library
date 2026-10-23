@@ -27,8 +27,8 @@ Role by jurisdiction (decision D26):
   survey or plans, storage / gallery / trench geometry.
 - Receiving structure rim, invert and HGL from the agency or as-builts.
 
-Scripts (hydro env interpreter by full path, D11; `<PY>` = `D:\EKOS\envs\hydro\.venv\Scripts\python.exe` or
-the path in the library environment table):
+Scripts (hydro env interpreter by full path, D11; `<PY>` = `"%HYDRO_PY%"` = `C:\EKOS\hydrology\.venv\Scripts\python.exe`, per
+the path in the 08_Platform_Builds/ENVIRONMENTS.md):
 - `scripts/swmm_width_calibrate.py` - log-space bisection of subcatchment width to target peaks; geometric mean;
   fit report.
 

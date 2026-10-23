@@ -47,7 +47,7 @@ Role table is a default, to confirm (D15). Inference concurrency 2. (EKOS-LOCAL-
 
 ## C. EKOS environment rules
 1. Python: use the locked uv environments (`uv run --project <env>` for interactive work); never bare pip or the global Python 3.14. (EKOS-LOCAL-021)
-2. Long jobs and every .cmd launcher call the environment interpreter by full path, e.g. `D:\EKOS\envs\<env>\.venv\Scripts\python.exe script.py`; never `python` from PATH. Skill dependency lines name the environment; pip install only for container-only skills. (D11, SAH-015)
+2. Long jobs and every .cmd launcher call the environment interpreter by full path, set as user variables `%GIS_PY%`, `%DOCS_PY%`, `%HYDRO_PY%`, `%HYDRAULICS_PY%`, `%ACQ_PY%`, `%LIBRARY_PY%` (table in `08_Platform_Builds/ENVIRONMENTS.md`), e.g. `"%GIS_PY%\" script.py`; never `python` from PATH. Skill dependency lines name the environment; pip install only for container-only skills. (D11, SAH-015)
 3. GIS environment for rasterio/geopandas; documents environment for local-model schema validation (jsonschema); keep the two separate. (EKOS-LOCAL-021, EKOS-LOCAL-002)
 4. Keep QGIS GDAL/PROJ off PATH; use the QGIS shell wrapper or the conda PDAL environment when those tools are needed. (EKOS-LOCAL-021)
 5. PowerShell .ps1 execution is disabled; do not change the policy. Launch with Python or inline commands; setup scripts only may use `-ExecutionPolicy Bypass`. (D12, EKOS-LOCAL-021)

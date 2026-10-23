@@ -8,8 +8,8 @@ Read-only on model folders. Writes JSON results only where --out points (use 40_
   python run_checks.py status <run_register.csv> [--out-md run_status.md] [--out-json run_status.json]
 
 Exit code 0 = pass, 1 = fail, 2 = usage or read error. Every result is also printed as JSON.
-On EKOS call it with the environment interpreter by full path (D11), e.g.
-  D:\\EKOS\\envs\\hydro\\Scripts\\python.exe run_checks.py complete-flo2d D:\\Jobs\\<job>\\20_Working\\FLO2D\\EX_100yr_3hr
+On EKOS call it with the gis env interpreter (%GIS_PY%, h5py) by full path (D11), e.g.
+  "%GIS_PY%" run_checks.py complete-flo2d D:\\Jobs\\<job>\\20_Working\\FLO2D\\EX_100yr_3hr
 Decisions applied: D04 (FLO-2D completion), D09 (volume error), D08 (status file).
 """
 from __future__ import annotations

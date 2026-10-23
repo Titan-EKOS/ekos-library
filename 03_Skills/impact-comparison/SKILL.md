@@ -26,8 +26,8 @@ Not here: building or running the models (flo2d-model-runs, hecras-2d-models); r
 - The governing rise / change threshold with its source (agency manual section, stakeholder agreement or
   FEMA rule) - decision D29: no hard-coded 0.1 ft.
 
-Scripts (gis env by full path; `<PY>` = `D:\EKOS\envs\gis\.venv\Scripts\python.exe` or the path in the
-library environment table):
+Scripts (gis env by full path; `<PY>` = `"%GIS_PY%"` = `C:\EKOS\gis\.venv\Scripts\python.exe`, per
+08_Platform_Builds/ENVIRONMENTS.md):
 - `scripts/shared_input_hashes.py` - shared-input hash equality across condition folders.
 - `scripts/flo2d_cell_compare.py` - FLO-2D cell-matched dWSE / depth comparison, FEMA counts, register merge.
 

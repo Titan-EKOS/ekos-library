@@ -20,7 +20,7 @@ description: Write a drainage technical memo - preliminary or final TM, drainage
 - For alternatives memos: meeting transcript, meeting notes, one or two prior agency memos as format examples.
 - For rise memos: existing and proposed plan HDFs on a common mesh, owner criteria.
 - Outlines: `reference/memo_outlines.md`.
-- `%DOCS_PY%` = documents venv interpreter by full path (D11; h5py and numpy for the rise script); `%SK%` = this
+- `%DOCS_PY%` = documents env interpreter, `%GIS_PY%` = gis env (h5py, numpy) for the rise script (D11); `%SK%` = this
   skill's `scripts\` folder.
 
 ## Steps
@@ -52,7 +52,7 @@ description: Write a drainage technical memo - preliminary or final TM, drainage
    warning.
 9. Crossing rise memo (RPT-C15): focus on the last proposed iteration; list modeling effort, assumptions and data
    gaps. Compute time above each rise threshold at common-wet cells from saved output:
-   `"%DOCS_PY%" "%SK%\rise_exceedance.py" --ex <ex.p##.hdf> --pr <pr.p##.hdf> --area "<2D area>" --thresholds <owner values> --csv <..>\rise_cells.csv --json <..>\rise_summary.json`
+   `"%GIS_PY%" "%SK%\rise_exceedance.py" --ex <ex.p##.hdf> --pr <pr.p##.hdf> --area "<2D area>" --thresholds <owner values> --csv <..>\rise_cells.csv --json <..>\rise_summary.json`
    (CAMPBELL-024 used 0.1, 0.5 and 1.0 ft at the owner's request). Plot exceedance durations; note that maxima can
    occur at different cells. Compute depth x velocity^2 hazard for both conditions (cell velocities from
    `hecras-result-rasters`). Map WSEL and velocity differences; show bridge and barrel flows separately. Report native

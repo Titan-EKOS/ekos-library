@@ -67,7 +67,7 @@ apply the jurisdiction stormwater rules (add-on).
    or surface path) that does not return water to the foundations; slope paving 2% away from
    buildings; check geotech limits on infiltrating above lowest foundations (setback or depth).
 8. **Run the calc** for every revision:
-   `D:\EKOS\venvs\gis\Scripts\python.exe scripts\gw_reinfiltration_calc.py <case>.json --out <case>_summary.csv`
+   `"%HYDRO_PY%" scripts\gw_reinfiltration_calc.py <case>.json --out <case>_summary.csv`
    (container: `python3 scripts/gw_reinfiltration_calc.py ...`). The JSON holds every input; the
    summary lists seepage per face, storage, gross volume, infiltration area, drawdown, the 0 in/hr
    overflow flow and the depth stack, plus CHECK lines (exit 2 if any check is not met: volume,

@@ -35,7 +35,7 @@ drainage-report-exhibit-standards (Result maps); sheets are built per scripted-e
   zone mismatch. Pima County default is EPSG:2868 (D55); record the realization in the data log.
 - Optional: RAS Mapper export of the modified terrain (`--terrain`) when the plan uses terrain modifications.
 - Environment: the EKOS GIS uv environment, called by full path (D11), e.g.
-  `D:\EKOS\envs\gis\.venv\Scripts\python.exe` (path per the EKOS environment table; confirm).
+  `%GIS_PY%` = `C:\EKOS\gis\.venv\Scripts\python.exe` (08_Platform_Builds/ENVIRONMENTS.md).
 
 ## Steps
 1. **Discover plans.** In the project folder list `*.p[0-9][0-9].hdf`. If none, ask for the HDF path. Read each
@@ -56,7 +56,7 @@ drainage-report-exhibit-standards (Result maps); sheets are built per scripted-e
      BC present, boundary vs structure flow split, event-to-event variation) through model-run-supervisor.
 4. **Run the engine** (D43 names, default):
    ```
-   D:\EKOS\envs\gis\.venv\Scripts\python.exe scripts\hecras_result_rasters.py --hdf <PLAN>.p14.hdf ^
+   "%GIS_PY%" scripts\hecras_result_rasters.py --hdf <PLAN>.p14.hdf ^
      --scenario EX --event 100yr --cellsize 10 --clip <CLIP>.shp --outdir <OUT> --terrain-out
    ```
    - Legacy plan-number names: `--naming plan --tag p14` gives `p14_MaxDepth_ft_10ft.tif` (v1 behavior).

@@ -340,13 +340,13 @@ Tool-version table (copy into the model basis; decision D03):
 | Vendor revision notes | build release notes saved to 01_Reference |
 | Agency acceptance | written acceptance of the working build, logged per project; until received, an open item |
 
-Scripts (gis env interpreter by full path, decision D11; no .ps1, decision D12):
+Scripts (hydraulics env interpreter by full path, decision D11; no .ps1, decision D12):
 - `scripts/flo2d_harness.py` - preflight / launch / status / finish.
 - `scripts/flo2d_dialog_watch.py` + `reference/known_benign_warnings.json` - dialog watcher (D07).
 - `scripts/flo2d_channel_check.py` - XSEC / CHAN / CHANBANK validity checks.
 
-Example interpreter path used below: `D:\EKOS\envs\gis\.venv\Scripts\python.exe` (use the path in the
-library environment table if it differs). Shown as `<PY>`.
+Interpreter used below: `"%HYDRAULICS_PY%"` = `C:\EKOS\hydraulics\.venv\Scripts\python.exe` (per
+08_Platform_Builds/ENVIRONMENTS.md if it differs). Shown as `<PY>`.
 
 ## Steps
 
@@ -649,8 +649,8 @@ HMS hydrographs (hechms-headless); PC-Hydro inflows (pchydro-hydrographs); queue
 - Culvert / crossing data from survey or lidar (inverts, barrel length), not GIS line length.
 - Job table row from model-run-supervisor (plan, cores, timeout).
 
-Scripts (gis env interpreter by full path, D11; no .ps1, D12). `<PY>` below =
-`D:\EKOS\envs\gis\.venv\Scripts\python.exe` (or the path in the library environment table):
+Scripts (interpreter by full path, D11; no .ps1, D12). `<PY>` below = `"%HYDRAULICS_PY%"` for
+ras_headless.py and ras_plan_register.py, `"%GIS_PY%"` for ras_result_check.py (h5py) - see 08_Platform_Builds/ENVIRONMENTS.md:
 - `scripts/ras_plan_register.py` - plan / geometry / flow register and hygiene flags (read-only).
 - `scripts/ras_headless.py` - D05 launch order with dialog log and result check.
 - `scripts/ras_result_check.py` - acceptance numbers from a closed plan HDF.
@@ -745,7 +745,6 @@ Scripts (gis env interpreter by full path, D11; no .ps1, D12). `<PY>` below =
 4. Set PYTHONIOENCODING=utf-8 for library logs. Script the input prep; run long computes as supervised jobs.
 
 ### 9. Preflight (engine-specific part of the supervisor gate)
-1. All project text files CRLF; register clean (no placeholder titles, no shared flow files across storms).
-2. 
+1. All project text files CRLF; register clean (
 
 [Truncated at 60000 chars. Fetch full skills with library_cli.py get-skill <name>.]

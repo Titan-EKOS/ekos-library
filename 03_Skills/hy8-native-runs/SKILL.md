@@ -5,7 +5,7 @@ version: 1.0.0
 status: active
 function: hydraulics-model-run
 jurisdiction: all (add-ons - Caltrans / California, City of Tucson)
-tools_versions: "HY-8 8.00.2; Word (report export); Python 3.12 gis env (pywinauto for supervised automation only)"
+tools_versions: "HY-8 8.00.2; Word (report export); Python 3.12 hydraulics env (pywinauto for supervised automation only)"
 owner: JCO
 replaces: "drainage-report-build v1 section 3 HY-8 line (UI automation as the default path)"
 ---
@@ -28,8 +28,8 @@ CulvertMaster and FlowMaster are legacy and used only to read archived files.
 - Seed / template .hy8 saved by HY-8 itself for each culvert type and material in use (library resource or
   a project seed; never a file written from scratch).
 
-Scripts (gis env by full path; `<PY>` = `D:\EKOS\envs\gis\.venv\Scripts\python.exe` or the path in the
-library environment table):
+Scripts (hydraulics env by full path; `<PY>` = `"%HYDRAULICS_PY%"` = `C:\EKOS\hydraulics\.venv\Scripts\python.exe`, per
+08_Platform_Builds/ENVIRONMENTS.md):
 - `scripts/hy8_template.py` - `fill` (values into a template by exact key), `check` (CRLF, ENDPROJECTFILE,
   keys, inch/ft warning), `diff` (INPUT vs NATIVE).
 - `scripts/hds5_check.py` - independent HDS-5 inlet / outlet control check (internal QC only).

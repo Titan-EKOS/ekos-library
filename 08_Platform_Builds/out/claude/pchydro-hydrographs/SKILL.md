@@ -61,7 +61,7 @@ Not for watersheds over 1 sq mi in Pima County: route those to hechms-headless.
 
 ### Phase 1: Extract basin inputs from a report
 1. `python3 scripts/extract_basin_inputs.py --in <report.pdf|.xlsx|.docx> --out-stem <stem>`
-   (EKOS: GIS venv python by full path). Produces `<stem>_basin_inputs.csv` (area, CN, C, Tc, lag,
+   (EKOS: `"%DOCS_PY%"`, documents env). Produces `<stem>_basin_inputs.csv` (area, CN, C, Tc, lag,
    % impervious, reported Q by return period) and `<stem>_report_text.txt` for manual review.
 2. Refine by hand where the report layout defeats the regex. Show the table; get the user's
    confirmation before any run.
@@ -227,7 +227,7 @@ This skill must pass before hand-off:
 ## Dependencies
 - Container: `pip install --break-system-packages pydsstools openpyxl pdfplumber python-docx numpy`
   (`pdftotext`/poppler is a fallback for PDF text).
-- EKOS: GIS venv (openpyxl, pdfplumber, python-docx, numpy, rasterio, whitebox, playwright) called by
+- EKOS: `%DOCS_PY%` (openpyxl, pdfplumber, python-docx) for extraction and xlsx, `%GIS_PY%` (rasterio, whitebox) for terrain, `%ACQ_PY%` (playwright) for batch runs, `%HYDRO_PY%` (pydsstools) for DSS, each called by
   full path (D11); DSS writing from the container or the HEC-HMS bundled Jython.
 
 ## Files

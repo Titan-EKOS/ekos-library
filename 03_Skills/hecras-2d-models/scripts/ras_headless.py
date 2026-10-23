@@ -1,7 +1,7 @@
 """Headless HEC-RAS 6.6 plan compute with the decision-D05 fallback order. Windows only.
 
-Environment: gis env (psutil; pywinauto for the dialog log; pywin32 only for the COM fallback).
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe ras_headless.py <project.prj> p03
+Environment: hydraulics env, %HYDRAULICS_PY% (psutil; pywinauto for the dialog log; pywin32 only for the COM fallback).
+  "%HYDRAULICS_PY%" ras_headless.py <project.prj> p03
       [--ras-exe "C:\\Program Files (x86)\\HEC\\HEC-RAS\\6.6\\Ras.exe"]
       [--timeout-hours 12] [--no-com] [--unsteady-args "{tmp} x{num}"]
 

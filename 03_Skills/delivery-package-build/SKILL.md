@@ -23,7 +23,7 @@ replaces: "none (new; carries the deliverable-packaging part of Standard v0.3 ch
 - Package name `<Initials>_<YYYYMMDD>_<CODE>_<description>` (dates YYYYMMDD, D56), e.g. `JCO_20261022_HOML5_Review`.
 - Delivery folder: `30_Report\Issued\<package name>\` in the job tree (D56) and the dated synced OneDrive project
   folder on EKOS.
-- `%DOCS_PY%` = documents venv interpreter by full path (D11); `%SK%` = this skill's `scripts\` folder.
+- `%DOCS_PY%` = documents env interpreter, `C:\EKOS\documents\.venv\Scripts\python.exe` (D11; ENVIRONMENTS.md); `%SK%` = this skill's `scripts\` folder.
 
 ## Steps
 1. Finish all content before the final copy. Copy finished model results only, never while a run is writing (check

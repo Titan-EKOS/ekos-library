@@ -29,8 +29,8 @@ HMS hydrographs (hechms-headless); PC-Hydro inflows (pchydro-hydrographs); queue
 - Culvert / crossing data from survey or lidar (inverts, barrel length), not GIS line length.
 - Job table row from model-run-supervisor (plan, cores, timeout).
 
-Scripts (gis env interpreter by full path, D11; no .ps1, D12). `<PY>` below =
-`D:\EKOS\envs\gis\.venv\Scripts\python.exe` (or the path in the library environment table):
+Scripts (interpreter by full path, D11; no .ps1, D12). `<PY>` below = `"%HYDRAULICS_PY%"` for
+ras_headless.py and ras_plan_register.py, `"%GIS_PY%"` for ras_result_check.py (h5py) - see 08_Platform_Builds/ENVIRONMENTS.md:
 - `scripts/ras_plan_register.py` - plan / geometry / flow register and hygiene flags (read-only).
 - `scripts/ras_headless.py` - D05 launch order with dialog log and result check.
 - `scripts/ras_result_check.py` - acceptance numbers from a closed plan HDF.

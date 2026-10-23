@@ -23,7 +23,7 @@ replaces: "none (new; covers W11 comment cycle of the Standard and the response-
 - The current build (docx and its Word-exported PDF) and the Standard workbook if the job uses it.
 - Folder: `50_Correspondence\<YYYYMMDD>_<Agency>_<Milestone>\` holds the originals unrenamed; the log is
   `<Job>_<ReportID>_CommentResponse_<YYYYMMDD>.xlsx` in the same folder.
-- `%DOCS_PY%` = documents venv interpreter by full path (D11); `%SK%` = this skill's `scripts\` folder.
+- `%DOCS_PY%` = documents env interpreter, `C:\EKOS\documents\.venv\Scripts\python.exe` (D11; ENVIRONMENTS.md); `%SK%` = this skill's `scripts\` folder.
 
 ## Status vocabulary (D45)
 - Status: Addressed / Partial / Assumed / Not Addressed / Cannot Determine / Stale.

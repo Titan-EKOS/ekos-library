@@ -1,4 +1,4 @@
-"""FLO-2D Pro dialog watcher (decision D07). Windows only; Environment: gis env with pywinauto.
+"""FLO-2D Pro dialog watcher (decision D07). Windows only; Environment: hydraulics env (%HYDRAULICS_PY%) with pywinauto.
 
 Polls top-level windows owned by FLOPRO processes. For each dialog it logs title and text to
 <logdir>/dialog_log.csv. Text that matches an entry in known_benign_warnings.json is answered
@@ -6,7 +6,7 @@ Polls top-level windows owned by FLOPRO processes. For each dialog it logs title
 open, a STOP_<pid>.json file is written for the supervisor, and the watcher keeps logging.
 The supervisor notifies JCO; the run waits until someone decides.
 
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe flo2d_dialog_watch.py --logdir D:\\Jobs\\1234\\FLO\\EX_100yr
+  "%HYDRAULICS_PY%" flo2d_dialog_watch.py --logdir D:\\Jobs\\1234\\FLO\\EX_100yr
       [--benign ..\\reference\\known_benign_warnings.json] [--poll 5] [--once]
 
 Add an entry to the benign list only after JCO has reviewed the logged text from a real run.

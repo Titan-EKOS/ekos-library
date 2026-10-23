@@ -31,7 +31,7 @@ Part A (reissue) is the most frequent use. Parts B-D are run as needed. Every pa
 ### Step 0 - Source files are read-only (all parts)
 1. Copy every source DWG/DXF/LandXML to a scratch folder under `20_Working\...` and run all automated reads there. (NORTHLOOP-018)
 2. Write a SHA-256 manifest of the source folder before the run and compare after; stop and report if any source file changed:
-   `D:\EKOS\envs\<env>\.venv\Scripts\python.exe <skill>\scripts\hash_manifest.py make <source_folder> <scratch>\before.json`
+   `"%DOCS_PY%" <skill>\scripts\hash_manifest.py make <source_folder> <scratch>\before.json`
    then `... hash_manifest.py check <source_folder> <scratch>\before.json` (exit code 1 = a source file changed or vanished).
 3. Never open a received DWG in place with accoreconsole or a script that saves; console runs can refresh the DWG and its .bak. (NORTHLOOP-018)
 

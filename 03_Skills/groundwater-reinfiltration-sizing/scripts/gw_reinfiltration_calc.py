@@ -35,7 +35,7 @@ Example case file (keys shown with typical units):
 }
 
 Usage:
-  D:\\EKOS\\venvs\\gis\\Scripts\\python.exe gw_reinfiltration_calc.py case.json --out case_summary.csv
+  "%HYDRO_PY%" gw_reinfiltration_calc.py case.json --out case_summary.csv
   python3 gw_reinfiltration_calc.py case.json
 Exit code 0 = all checks met, 2 = a check not met (see the CHECK lines).
 """

@@ -21,7 +21,7 @@ Package level:
 Manual (listed in the report, not automated): HYSTRUC rating tables = HY-8 export.
 
 Usage (EKOS, venv python by full path):
-  D:\\EKOS\\venvs\\gis\\Scripts\\python.exe package_qc.py ^
+  "%DOCS_PY%" package_qc.py ^
      --model DUPEFF=D:\\...\\DupEff --model EXIST=D:\\...\\Existing --model PROP=D:\\...\\Proposed ^
      --gis D:\\...\\GIS --docs D:\\...\\Report --out package_QC_report.txt
 Exit code: 0 = PASS, 1 = FAIL.

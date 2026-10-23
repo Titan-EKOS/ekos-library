@@ -1,7 +1,7 @@
 """Independent HDS-5 culvert headwater check (internal QC only; decision D30 - file in 40_QC, never in a
 deliverable). Concrete circular and box barrels, inlet and outlet control. Pure Python, US units.
 
-  D:\\EKOS\\envs\\gis\\.venv\\Scripts\\python.exe hds5_check.py --shape box --span 10 --rise 4 --barrels 3
+  "%HYDRAULICS_PY%" hds5_check.py --shape box --span 10 --rise 4 --barrels 3
       --length 120 --slope 0.01 --n 0.012 --ke 0.5 --inlet box_90_15 --q 450 --tw 3.2 [--q-list 100 200]
 
 Inlet control: HDS-5 (FHWA, 3rd ed., 2012) equations 1 (unsubmerged, form 1), 3 (submerged), linear

@@ -129,7 +129,7 @@ Use `reference/community_items_and_matrix.md` section 1.
 
 ### 6. Pre-upload QC gate (fail = do not upload)
 1. Run the gate on the staged package model folders:
-   `D:\EKOS\venvs\gis\Scripts\python.exe scripts\package_qc.py --model DUPEFF=<dir> --model EXIST=<dir> --model PROP=<dir> --gis <GIS dir> --docs <Report dir> --out package_QC_report.txt`
+   `"%DOCS_PY%" scripts\package_qc.py --model DUPEFF=<dir> --model EXIST=<dir> --model PROP=<dir> --gis <GIS dir> --docs <Report dir> --out package_QC_report.txt`
    (container: `python3 scripts/package_qc.py ...`). First model = duplicate effective (DLL reference).
    Checks, per model: build strings exe = CONT.DAT line 1 = SUMMARY.OUT; DLL set present; required
    inputs/outputs present (CHAN/CHANBANK/XSEC and CHANMAX/CROSSMAX when channels exist;

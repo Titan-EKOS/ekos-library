@@ -224,7 +224,7 @@ Role table is a default, to confirm (D15). Inference concurrency 2. (EKOS-LOCAL-
 
 ## C. EKOS environment rules
 1. Python: use the locked uv environments (`uv run --project <env>` for interactive work); never bare pip or the global Python 3.14. (EKOS-LOCAL-021)
-2. Long jobs and every .cmd launcher call the environment interpreter by full path, e.g. `D:\EKOS\envs\<env>\.venv\Scripts\python.exe script.py`; never `python` from PATH. Skill dependency lines name the environment; pip install only for container-only skills. (D11, SAH-015)
+2. Long jobs and every .cmd launcher call the environment interpreter by full path, set as user variables `%GIS_PY%`, `%DOCS_PY%`, `%HYDRO_PY%`, `%HYDRAULICS_PY%`, `%ACQ_PY%`, `%LIBRARY_PY%` (table in `08_Platform_Builds/ENVIRONMENTS.md`), e.g. `"%GIS_PY%\" script.py`; never `python` from PATH. Skill dependency lines name the environment; pip install only for container-only skills. (D11, SAH-015)
 3. GIS environment for rasterio/geopandas; documents environment for local-model schema validation (jsonschema); keep the two separate. (EKOS-LOCAL-021, EKOS-LOCAL-002)
 4. Keep QGIS GDAL/PROJ off PATH; use the QGIS shell wrapper or the conda PDAL environment when those tools are needed. (EKOS-LOCAL-021)
 5. PowerShell .ps1 execution is disabled; do not change the policy. Launch with Python or inline commands; setup scripts only may use `-ExecutionPolicy Bypass`. (D12, EKOS-LOCAL-021)
@@ -596,7 +596,7 @@ Not for watersheds over 1 sq mi in Pima County: route those to hechms-headless.
 
 ### Phase 1: Extract basin inputs from a report
 1. `python3 scripts/extract_basin_inputs.py --in <report.pdf|.xlsx|.docx> --out-stem <stem>`
-   (EKOS: GIS venv python by full path). Produces `<stem>_basin_inputs.csv` (area, CN, C, Tc, lag,
+   (EKOS: `"%DOCS_PY%"`, documents env). Produces `<stem>_basin_inputs.csv` (area, CN, C, Tc, lag,
    % impervious, reported Q by return period) and `<stem>_report_text.txt` for manual review.
 2. Refine by hand where the report layout defeats the regex. Show the table; get the user's
    confirmation before any run.
@@ -756,10 +756,6 @@ This skill must pass before hand-off:
   peak; new reports match native at 0.0 cfs; rebuilds compared to the old report (D19).
 - Adjusted copy is separate from the native export; added volumes logged; no volume-equality gate.
 - DSS round trip verified ordinate by ordinate; INST-VAL, CFS, 1Minute.
-- Every inflow BC appears in the inflow register with its source.
-- One PC-Hydro version stated throughout the report and software register.
-
-## Dependencies
-- Container: `pip install -
+- Every inflow BC appears in the inflow register with its sou
 
 [Truncated at 60000 chars. Fetch full skills with library_cli.py get-skill <name>.]
