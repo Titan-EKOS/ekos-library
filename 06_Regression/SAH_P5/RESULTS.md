@@ -62,5 +62,42 @@ Library issues found: P5-02, P5-03, P5-04, P5-05.
   Second residual cluster at the UPRR connection DUPRR-KH. -> new finding M-03.
 - RAS rerun stopped; next step (JCO): rebuild the crossing in series in the RAS geometry, test p01/p06 at 2SEC.
 
+## 3c. FLO-2D rerun (library harness, model-run-supervisor job table)
+20 runs (UPPER/LOWER x 3-hr/24-hr x 2/10/25/50/100-yr) on two 8-thread streams, cores 0-11 and 28-31,
+2026-10-22 18:50 to 10-23 08:43 (13.9 h wall, about 27.6 h of solver time). No stalls, no dialog stops, no reruns.
+The original work finished only the 100-yr pairs (the 3-hr MineFill run stalled 89.8 h and blocked the queue);
+the 2- to 50-yr FLO-2D set now exists for both durations.
+
+| Run | Solver h (new) | Original 100-yr solver h |
+|---|---|---|
+| UPPER 3-hr 100-yr | 0.54 | 0.63 |
+| LOWER 3-hr 100-yr | 0.84 | 0.82 |
+| UPPER 24-hr 100-yr | 1.73 | 1.86 |
+| LOWER 24-hr 100-yr | 2.54 | 2.91 |
+| UPPER 3-hr 2/10/25/50 | 0.29 / 0.33 / 0.43 / 0.47 | not run |
+| LOWER 3-hr 2/10/25/50 | 0.60 / 0.62 / 0.76 / 0.72 | not run |
+| UPPER 24-hr 2/10/25/50 | 1.16 / 1.24 / 1.59 / 1.64 | not run |
+| LOWER 24-hr 2/10/25/50 | 2.27 / 2.05 / 2.65 / 2.16 | not run |
+
+Checks: every run complete by D04 (termination line, outputs, no TMP). Overlap-strip handoff (s41) conserved
+volume on every pair (e.g. 24-hr 100-yr 1540.6 -> 1540.6 ac-ft). ERROR.CHK: UPPER 5 errors / 13 warnings (original
+8 / 15) - the HYSTRUC repeated-inflow-node error is gone after the series rebuild; remaining items are levee crests
+below adjacent ground, outflow cells beside I-19 levee cells on the east boundary, and a CADPTS note (all present in
+the original). LOWER 4 / 1, same as the original. Volume conservation still read by hand (P5-07). Every new run is
+flagged "stale output" by run_checks - false positive (P5-12).
+
+Effect of the I-19 series fix (MAXWSELEV, same grid, 100-yr):
+- UPPER: 153 of 309,211 cells change more than 0.1 ft, all at the I-19 crossing. West of the west ramp -3.1 ft
+  (ponding behind the ramp now drains through its culvert); mainline to east ramp -6.1 to -6.7 ft; ramp to mainline
+  and east of the east ramp +0.5 to +0.85 ft.
+- LOWER: water surface rises up to 0.48 ft in 703-912 cells (none over 0.5 ft) because more flow now passes the
+  crossing. The original LOWER results understate flow reaching the La Villita corridor from this crossing; the
+  report and the RAS model (M-03) need the same correction.
+
+Errors caught / rework (FLO-2D): K02 stall prevented (watchdog armed, none occurred); K03 caught and the structure
+error fixed; K04 replaced by one job table (no hand-written stream files; one driver bug found and fixed in about
+5 min, no solver time lost); K06 prevented (full interpreter paths). K01 handled by the imported s41 step (P5-08).
+
 ## 4. Pending
-- FLO-2D 10 pairs (started 2026-10-22 18:50); time and rework scoring; RAS crossing rebuild (JCO).
+- RAS crossing rebuild in series (JCO); report text and RAS results to be updated for the I-19 correction;
+  time/rework summary across all parts.
